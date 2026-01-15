@@ -126,13 +126,112 @@ This dataset includes the log fold changes of gene expression in an experiment t
 
 1.  How many genes are included in this study?
 
+```{r}
+length(unique(DE_results_msn24_EtOH$gene_id))
+```
+
+There are 5756 unique values of `gene_id` in the DataFrame indicating that there are 5756 genes included in the study. 
+
 2.  Which gene has the highest log fold change in the *msn2/4ΔΔ* mutant EtOH response?
+
+```{r}
+DE_results_msn24_EtOH %>%
+  arrange(desc(logFC_YPS606_msn24dd_EtOH_response)) %>%
+  head(1) %>%
+  knitr::kable()
+```
+
+The TDH1 gene displays the highest value of `logFC_YPS606_msn24dd_EtOH_response`, indicating it shows the greatest positive (upregulated) difference in the *msn2/4ΔΔ* mutant vs WT EtOH response. 
 
 3.  How many HSP genes are differentially expressed (FDR < 0.01) in unstressed conditions for the mutant?
 
+```{r}
+DE_results_msn24_EtOH %>%
+  filter(fdr_WT.vs.msn24dd_unstressed < 0.01,
+         grepl("HSP", common_name, ignore.case = TRUE)) %>% 
+  knitr::kable()
+```
+
+There are **two** HSP genes differentially expressed in unstressed conditions for the mutant?
+
 4.  Do the genes with the largest magnitude fold changes have the smallest p-values?
 
+```{r}
+library(ggplot2)
+library(cowplot)
+
+set_theme(theme_minimal())
+a1 <- ggplot(
+  data = DE_results_msn24_EtOH, aes(x = logFC_YPS606_msn24dd_EtOH_response,
+                                    y = -log10(pvalue_YPS606_msn24dd_EtOH_response))) +
+  geom_point(alpha = 0.5) +
+  labs(title = "msn2/4∆∆ EtOH response", 
+       x = "logFC", 
+       y = "-log(p value)")
+a2 <- ggplot(
+  data = DE_results_msn24_EtOH, aes(x = abs(logFC_YPS606_msn24dd_EtOH_response),
+                                    y = -log10(pvalue_YPS606_msn24dd_EtOH_response))) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  labs(title = "Absolute msn2/4∆∆ EtOH response", 
+       x = "|logFC|", 
+       y = "-log(p value)")
+
+b1 <- ggplot(
+  data = DE_results_msn24_EtOH, aes(x = logFC_YPS606_WT_etoh_response,
+                                    y = -log10(pvalue_YPS606_WT_etoh_response))) +
+  geom_point(alpha = 0.5) +
+  labs(title = "WT EtOH response", 
+       x = "logFC", 
+       y = "-log(p value)")
+b2 <- ggplot(
+  data = DE_results_msn24_EtOH, aes(x = abs(logFC_YPS606_WT_etoh_response),
+                                    y = -log10(pvalue_YPS606_WT_etoh_response))) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  labs(title = "Absolute WT EtOH response", 
+       x = "|logFC|", 
+       y = "-log(p value)")
+
+c1 <- ggplot(
+  data = DE_results_msn24_EtOH, aes(x = logFC_WT.vs.msn24dd_EtOH_response,
+                                    y = -log10(pvalue_WT.vs.msn24dd_EtOH_response))) +
+  geom_point(alpha = 0.5) +
+  labs(title = "WT vs msn2/4∆∆ EtOH response", 
+       x = "logFC", 
+       y = "-log(p value)")
+c2 <- ggplot(
+  data = DE_results_msn24_EtOH, aes(x = abs(logFC_WT.vs.msn24dd_EtOH_response),
+                                    y = -log10(pvalue_WT.vs.msn24dd_EtOH_response))) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  labs(title = "Absolute WT vs msn2/4∆∆ EtOH response", 
+       x = "|logFC|", 
+       y = "-log(p value)")
+
+plot_grid(b1, b2, a1, a2, c1, c2, ncol = 2, nrow = 3)
+
+```
+
+
+Log fold change and p-value seem to be generally positively correlated, although not perfectly. These graphs indicate that higher log-fold changes are typically associated with higher p-values, especially at lower values, though that relationship tends to become looser as either number gets higher. 
+
 5.  Which isoform of phosphoglucomutase is upregulated in response to ethanol stress, PGM1 or PGM2? Do you think *msn2/4* is responsible for this difference?
+
+```{r}
+DE_results_msn24_EtOH %>%
+  filter(grepl("phosphoglucomutase", annotation, ignore.case = TRUE)) %>%
+  arrange(common_name) %>%
+  select(common_name, 
+         logFC_YPS606_WT_etoh_response, 
+         logFC_YPS606_msn24dd_EtOH_response, 
+         logFC_WT.vs.msn24dd_EtOH_response) %>%
+  knitr::kable()
+```
+- PGM1 is mildly downregulated in both the WT and mutant stress responses
+- PGM2 is highly upregulated in the WT stress response but not in the mutant stress response
+
+This suggests that the mutation is responsible for an altered stress response, especially if the mutant displays differential fitness compared to the WT when exposed to ethanol. 
 
 **Render this file into a pdf or html file once you're finished.** If an error occurs, that will let you know there is any issue that needs to be resolved.
 
