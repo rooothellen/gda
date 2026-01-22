@@ -52,6 +52,10 @@ Using the "01_GettingStartedInR.qmd" in class exercise, answer the following que
 ```{r}
 DE_results_msn24_EtOH = read_tsv("https://raw.githubusercontent.com/clstacy/GenomicAnalysis/main/Data/Msn24_EtOH/DE_genes_Msn24_EtOH.txt")
 ```
+```{r}
+#| paged-print: true
+glimpse(DE_results_msn24_EtOH)
+```
 
 
 Answer the following questions (type your answers below each question, blank code chunks are included that you can paste or type commands into):
@@ -59,6 +63,7 @@ Answer the following questions (type your answers below each question, blank cod
 1.  How many genes are included in this study?
 
 ```{r}
+# Get the length of the list of unique gene ids in the dataframe
 length(unique(DE_results_msn24_EtOH$gene_id))
 ```
 
@@ -156,22 +161,32 @@ The genes with the largest magnitude fold change tend to have the smallest p-val
 5.  Which isoform of phosphoglucomutase is upregulated in response to ethanol stress, *PGM1* or *PGM2*? Do you think *msn2/4* is responsible for this difference? Why or why not?
 
 ```{r}
+#| paged-print: true
 # Reference the dataset
 DE_results_msn24_EtOH %>%
-  # Filter
+  # Get all the rows where the word phosphoglucomutase is present in the gene annotation 
   filter(grepl("phosphoglucomutase", annotation, ignore.case = TRUE)) %>%
+  
+  # Sort the dataframe by common name
   arrange(common_name) %>%
+  
+  # Get only the relevant columns: common name and EtOH response
   select(common_name, 
          logFC_YPS606_WT_etoh_response, 
          logFC_YPS606_msn24dd_EtOH_response, 
          logFC_WT.vs.msn24dd_EtOH_response)
 ```
 
-**Collaborators:**
+PGM1 is mildly downregulated in both the WT ethanol response and the mutant ethanol response.
+PGM2 is highly upregulated in the WT ethanol response but only mildly upregulated in the mutant ethanol response.
+This indicates that the PGM2 isoform of phosphoglucomutase is normally upregulated during ethanol stress, a response that is not present to the same extent in the mutant. Based on this information, the *msn2/4*ΔΔ mutation is therefore associated with an impaired ethanol stress response and *could be* (but is not definitevly) responsible for the difference. 
 
-**References:**
 
-**AI Use:**
+**Collaborators:** n/a
+
+**References:** n/a
+
+**AI Use:** n/a
 
 System information for reproducibility:
 

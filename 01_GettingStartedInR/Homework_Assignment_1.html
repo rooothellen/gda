@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeffrey Lewis &amp; Carson Stacy">
-<meta name="dcterms.date" content="2026-01-20">
+<meta name="dcterms.date" content="2026-01-22">
 
 <title>Homework Assigment #1</title>
 <style>
@@ -102,7 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 20, 2026</p>
+      <p class="date">January 22, 2026</p>
     </div>
   </div>
   
@@ -118,22 +118,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set_theme</span>(<span class="fu">theme_minimal</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
 </div>
 <section id="assignment-1-due-january-29th" class="level2">
 <h2 class="anchored" data-anchor-id="assignment-1-due-january-29th">Assignment #1: Due January 29th</h2>
@@ -151,7 +141,7 @@ Attaching package: 'dplyr'</code></pre>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DE_results_msn24_EtOH <span class="ot">=</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/clstacy/GenomicAnalysis/main/Data/Msn24_EtOH/DE_genes_Msn24_EtOH.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DE_results_msn24_EtOH <span class="ot">=</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/clstacy/GenomicAnalysis/main/Data/Msn24_EtOH/DE_genes_Msn24_EtOH.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 5756 Columns: 18
@@ -164,6 +154,34 @@ dbl (15): logFC_YPS606_WT_etoh_response, pvalue_YPS606_WT_etoh_response, fdr...
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(DE_results_msn24_EtOH)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5,756
+Columns: 18
+$ gene_id                             &lt;chr&gt; "YMR105C", "YML100W", "YER053C", "…
+$ common_name                         &lt;chr&gt; "PGM2", "TSL1", "PIC2", "NCE102", …
+$ annotation                          &lt;chr&gt; "Phosphoglucomutase", "Large subun…
+$ logFC_YPS606_WT_etoh_response       &lt;dbl&gt; 7.5999973, 7.7618280, 6.6940024, 0…
+$ pvalue_YPS606_WT_etoh_response      &lt;dbl&gt; 9.40e-38, 1.04e-35, 3.03e-39, 2.17…
+$ fdr_YPS606_WT_EtOH_response         &lt;dbl&gt; 3.26e-35, 1.54e-33, 2.07e-36, 4.57…
+$ logFC_YPS606_msn24dd_EtOH_response  &lt;dbl&gt; 0.78481798, 0.60949852, 1.73591634…
+$ pvalue_YPS606_msn24dd_EtOH_response &lt;dbl&gt; 3.430000e-06, 8.401730e-04, 4.6400…
+$ fdr_YPS606_msn24dd_EtOH_response    &lt;dbl&gt; 7.420000e-06, 1.398507e-03, 2.8600…
+$ logFC_WT.vs.msn24dd_EtOH_response   &lt;dbl&gt; -6.815179, -7.152329, -4.958086, -…
+$ pvalue_WT.vs.msn24dd_EtOH_response  &lt;dbl&gt; 6.34e-32, 2.53e-30, 1.35e-27, 3.23…
+$ fdr_WT.vs.msn24dd_EtOH_response     &lt;dbl&gt; 3.65e-28, 7.28e-27, 2.59e-24, 4.65…
+$ logFC_WT.vs.msn24dd_unstressed      &lt;dbl&gt; -0.144061475, -0.365016862, -0.126…
+$ pvalue_WT.vs.msn24dd_unstressed     &lt;dbl&gt; 0.350436027, 0.041423492, 0.425528…
+$ fdr_WT.vs.msn24dd_unstressed        &lt;dbl&gt; 0.998531082, 0.998531082, 0.998531…
+$ logFC_WT.vs.msn24dd_EtOH_absolute   &lt;dbl&gt; -6.959241, -7.517346, -5.084564, -…
+$ pvalue_WT.vs.msn24dd_EtOH_absolute  &lt;dbl&gt; 8.55e-37, 2.04e-35, 3.06e-36, 7.93…
+$ fdr_WT.vs.msn24dd_EtOH_absolute     &lt;dbl&gt; 1.64e-33, 1.96e-32, 3.52e-33, 2.85…</code></pre>
+</div>
+</div>
 <p>Answer the following questions (type your answers below each question, blank code chunks are included that you can paste or type commands into):</p>
 <ol type="1">
 <li>How many genes are included in this study?</li>
@@ -171,38 +189,191 @@ dbl (15): logFC_YPS606_WT_etoh_response, pvalue_YPS606_WT_etoh_response, fdr...
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>unique_genes <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(DE_results_msn24_EtOH<span class="sc">$</span>gene_id))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the length of the list of unique gene ids in the dataframe</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(DE_results_msn24_EtOH<span class="sc">$</span>gene_id))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5756</code></pre>
 </div>
-<p>There are 5756 in the dataset.</p>
+</div>
+<p>There are 5756 unique genes in the dataset.</p>
 <ol start="2" type="1">
 <li>Which gene has the highest log fold change in the <em>msn2/4</em>ΔΔ mutant EtOH response?</li>
 </ol>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reference the dataset</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>DE_results_msn24_EtOH <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sort the dataset by the log fold-change of the mutant ethanol response (descending = highest first)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(logFC_YPS606_msn24dd_EtOH_response)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get the first value in the dataset, which will have the highest value of the mutant ethanol response</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 18
+  gene_id common_name annotation   logFC_YPS606_WT_etoh…¹ pvalue_YPS606_WT_eto…²
+  &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;                         &lt;dbl&gt;                  &lt;dbl&gt;
+1 YJL052W TDH1        Glyceraldeh…                   10.1               1.34e-36
+# ℹ abbreviated names: ¹​logFC_YPS606_WT_etoh_response,
+#   ²​pvalue_YPS606_WT_etoh_response
+# ℹ 13 more variables: fdr_YPS606_WT_EtOH_response &lt;dbl&gt;,
+#   logFC_YPS606_msn24dd_EtOH_response &lt;dbl&gt;,
+#   pvalue_YPS606_msn24dd_EtOH_response &lt;dbl&gt;,
+#   fdr_YPS606_msn24dd_EtOH_response &lt;dbl&gt;,
+#   logFC_WT.vs.msn24dd_EtOH_response &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>The TDH1 gene, which codes for glyceraldehyde-3-phosphate dehydrogenase isozyme, has the highest log fold change in the <em>msn2/4</em>ΔΔ mutant EtOH response- ~9.06.</p>
 <ol start="3" type="1">
 <li>How many heat shock protein (HSP) genes are differentially expressed (FDR &lt; 0.01) in unstressed conditions for the mutant?</li>
 </ol>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reference the dataset</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>DE_results_msn24_EtOH <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get all rows where the FDR of the mutant unstressed condition is less than 0.01</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    fdr_WT.vs.msn24dd_unstressed <span class="sc">&lt;</span> <span class="fl">0.01</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get all rows where the common name includes the string "HSP"</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">"HSP"</span>, common_name, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 18
+  gene_id common_name annotation   logFC_YPS606_WT_etoh…¹ pvalue_YPS606_WT_eto…²
+  &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;                         &lt;dbl&gt;                  &lt;dbl&gt;
+1 YDR258C HSP78       Oligomeric …                   5.10               1.42e-29
+2 YPL240C HSP82       Hsp90 chape…                   4.74               7.28e-28
+# ℹ abbreviated names: ¹​logFC_YPS606_WT_etoh_response,
+#   ²​pvalue_YPS606_WT_etoh_response
+# ℹ 13 more variables: fdr_YPS606_WT_EtOH_response &lt;dbl&gt;,
+#   logFC_YPS606_msn24dd_EtOH_response &lt;dbl&gt;,
+#   pvalue_YPS606_msn24dd_EtOH_response &lt;dbl&gt;,
+#   fdr_YPS606_msn24dd_EtOH_response &lt;dbl&gt;,
+#   logFC_WT.vs.msn24dd_EtOH_response &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>There are two HSP proteins that are differentially expressed (FDR &lt; 0.01) in unstressed conditions for the mutant.</p>
 <ol start="4" type="1">
 <li>Do the genes with the largest magnitude fold changes <u>tend</u> to have the smallest <em>p</em>-values? Why might there be cases where there’s a mismatch between the magnitude of fold change and <em>p</em>-values?</li>
 </ol>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>a1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> DE_results_msn24_EtOH, <span class="fu">aes</span>(<span class="at">x =</span> logFC_YPS606_msn24dd_EtOH_response,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(pvalue_YPS606_msn24dd_EtOH_response))) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"msn2/4∆∆ EtOH response"</span>, </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"logFC"</span>, </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"-log(p value)"</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>a2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> DE_results_msn24_EtOH, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">abs</span>(logFC_YPS606_msn24dd_EtOH_response),</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(pvalue_YPS606_msn24dd_EtOH_response))) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Absolute msn2/4∆∆ EtOH response"</span>, </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"|logFC|"</span>, </span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"-log(p value)"</span>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> DE_results_msn24_EtOH, <span class="fu">aes</span>(<span class="at">x =</span> logFC_YPS606_WT_etoh_response,</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(pvalue_YPS606_WT_etoh_response))) <span class="sc">+</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"WT EtOH response"</span>, </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"logFC"</span>, </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"-log(p value)"</span>)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>b2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> DE_results_msn24_EtOH, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">abs</span>(logFC_YPS606_WT_etoh_response),</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(pvalue_YPS606_WT_etoh_response))) <span class="sc">+</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Absolute WT EtOH response"</span>, </span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"|logFC|"</span>, </span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"-log(p value)"</span>)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>c1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> DE_results_msn24_EtOH, <span class="fu">aes</span>(<span class="at">x =</span> logFC_WT.vs.msn24dd_EtOH_response,</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(pvalue_WT.vs.msn24dd_EtOH_response))) <span class="sc">+</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"WT vs msn2/4∆∆ EtOH response"</span>, </span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"logFC"</span>, </span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"-log(p value)"</span>)</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>c2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> DE_results_msn24_EtOH, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">abs</span>(logFC_WT.vs.msn24dd_EtOH_response),</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(pvalue_WT.vs.msn24dd_EtOH_response))) <span class="sc">+</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Absolute WT vs msn2/4∆∆ EtOH response"</span>, </span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"|logFC|"</span>, </span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"-log(p value)"</span>)</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(b1, b2, a1, a2, c1, c2, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework_Assignment_1_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The genes with the largest magnitude fold change tend to have the smallest p-values (small p-value -&gt; large -log(p-value) because large changes in expression are typically significant. There might be a mismatch between the magnitude of fold change and the p-values</p>
 <ol start="5" type="1">
 <li>Which isoform of phosphoglucomutase is upregulated in response to ethanol stress, <em>PGM1</em> or <em>PGM2</em>? Do you think <em>msn2/4</em> is responsible for this difference? Why or why not?</li>
 </ol>
-<p><strong>Collaborators:</strong></p>
-<p><strong>References:</strong></p>
-<p><strong>AI Use:</strong></p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reference the dataset</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>DE_results_msn24_EtOH <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get all the rows where the word phosphoglucomutase is present in the gene annotation </span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"phosphoglucomutase"</span>, annotation, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sort the dataframe by common name</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(common_name) <span class="sc">%&gt;%</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get only the relevant columns: common name and EtOH response</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(common_name, </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>         logFC_YPS606_WT_etoh_response, </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>         logFC_YPS606_msn24dd_EtOH_response, </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>         logFC_WT.vs.msn24dd_EtOH_response)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  common_name logFC_YPS606_WT_etoh_response logFC_YPS606_msn24dd_EtOH_response
+  &lt;chr&gt;                               &lt;dbl&gt;                              &lt;dbl&gt;
+1 PGM1                               -0.936                             -1.18 
+2 PGM2                                7.60                               0.785
+# ℹ 1 more variable: logFC_WT.vs.msn24dd_EtOH_response &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>PGM1 is mildly downregulated in both the WT ethanol response and the mutant ethanol response. PGM2 is highly upregulated in the WT ethanol response but only mildly upregulated in the mutant ethanol response. This indicates that the PGM2 isoform of phosphoglucomutase is normally upregulated during ethanol stress, a response that is not present to the same extent in the mutant. Based on this information, the <em>msn2/4</em>ΔΔ mutation is therefore associated with an impaired ethanol stress response and <em>could be</em> (but is not definitevly) responsible for the difference.</p>
+<p><strong>Collaborators:</strong> n/a</p>
+<p><strong>References:</strong> n/a</p>
+<p><strong>AI Use:</strong> n/a</p>
 <p>System information for reproducibility:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pander<span class="sc">::</span><span class="fu">pander</span>(<span class="fu">sessionInfo</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pander<span class="sc">::</span><span class="fu">pander</span>(<span class="fu">sessionInfo</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <p><strong>R version 4.5.2 (2025-10-31)</strong></p>
 <p><strong>Platform:</strong> aarch64-apple-darwin20</p>
 <p><strong>locale:</strong> en_US.UTF-8||en_US.UTF-8||en_US.UTF-8||C||en_US.UTF-8||en_US.UTF-8</p>
 <p><strong>attached base packages:</strong> <em>stats</em>, <em>graphics</em>, <em>grDevices</em>, <em>utils</em>, <em>datasets</em>, <em>methods</em> and <em>base</em></p>
-<p><strong>other attached packages:</strong> <em>dplyr(v.1.1.4)</em> and <em>readr(v.2.1.6)</em></p>
-<p><strong>loaded via a namespace (and not attached):</strong> <em>crayon(v.1.5.3)</em>, <em>vctrs(v.0.6.5)</em>, <em>cli(v.3.6.5)</em>, <em>knitr(v.1.51)</em>, <em>rlang(v.1.1.7)</em>, <em>xfun(v.0.55)</em>, <em>generics(v.0.1.4)</em>, <em>jsonlite(v.2.0.0)</em>, <em>bit(v.4.6.0)</em>, <em>glue(v.1.8.0)</em>, <em>htmltools(v.0.5.9)</em>, <em>hms(v.1.1.4)</em>, <em>rmarkdown(v.2.30)</em>, <em>pander(v.0.6.6)</em>, <em>evaluate(v.1.0.5)</em>, <em>tibble(v.3.3.1)</em>, <em>tzdb(v.0.5.0)</em>, <em>fastmap(v.1.2.0)</em>, <em>yaml(v.2.3.12)</em>, <em>lifecycle(v.1.0.5)</em>, <em>compiler(v.4.5.2)</em>, <em>Rcpp(v.1.1.1)</em>, <em>pkgconfig(v.2.0.3)</em>, <em>rstudioapi(v.0.17.1)</em>, <em>digest(v.0.6.39)</em>, <em>R6(v.2.6.1)</em>, <em>tidyselect(v.1.2.1)</em>, <em>curl(v.7.0.0)</em>, <em>parallel(v.4.5.2)</em>, <em>vroom(v.1.6.7)</em>, <em>pillar(v.1.11.1)</em>, <em>magrittr(v.2.0.4)</em>, <em>tools(v.4.5.2)</em> and <em>bit64(v.4.6.0-1)</em></p>
+<p><strong>other attached packages:</strong> <em>cowplot(v.1.2.0)</em>, <em>ggplot2(v.4.0.1)</em>, <em>dplyr(v.1.1.4)</em> and <em>readr(v.2.1.6)</em></p>
+<p><strong>loaded via a namespace (and not attached):</strong> <em>Matrix(v.1.7-4)</em>, <em>bit(v.4.6.0)</em>, <em>gtable(v.0.3.6)</em>, <em>jsonlite(v.2.0.0)</em>, <em>compiler(v.4.5.2)</em>, <em>crayon(v.1.5.3)</em>, <em>Rcpp(v.1.1.1)</em>, <em>tidyselect(v.1.2.1)</em>, <em>parallel(v.4.5.2)</em>, <em>splines(v.4.5.2)</em>, <em>scales(v.1.4.0)</em>, <em>yaml(v.2.3.12)</em>, <em>fastmap(v.1.2.0)</em>, <em>lattice(v.0.22-7)</em>, <em>R6(v.2.6.1)</em>, <em>labeling(v.0.4.3)</em>, <em>generics(v.0.1.4)</em>, <em>curl(v.7.0.0)</em>, <em>knitr(v.1.51)</em>, <em>tibble(v.3.3.1)</em>, <em>pander(v.0.6.6)</em>, <em>pillar(v.1.11.1)</em>, <em>RColorBrewer(v.1.1-3)</em>, <em>tzdb(v.0.5.0)</em>, <em>rlang(v.1.1.7)</em>, <em>utf8(v.1.2.6)</em>, <em>xfun(v.0.55)</em>, <em>S7(v.0.2.1)</em>, <em>bit64(v.4.6.0-1)</em>, <em>cli(v.3.6.5)</em>, <em>mgcv(v.1.9-3)</em>, <em>withr(v.3.0.2)</em>, <em>magrittr(v.2.0.4)</em>, <em>digest(v.0.6.39)</em>, <em>grid(v.4.5.2)</em>, <em>vroom(v.1.6.7)</em>, <em>rstudioapi(v.0.17.1)</em>, <em>hms(v.1.1.4)</em>, <em>nlme(v.3.1-168)</em>, <em>lifecycle(v.1.0.5)</em>, <em>vctrs(v.0.6.5)</em>, <em>evaluate(v.1.0.5)</em>, <em>glue(v.1.8.0)</em>, <em>farver(v.2.1.2)</em>, <em>rmarkdown(v.2.30)</em>, <em>tools(v.4.5.2)</em>, <em>pkgconfig(v.2.0.3)</em> and <em>htmltools(v.0.5.9)</em></p>
 </div>
 </div>
 </section>
