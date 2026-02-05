@@ -6,4 +6,5 @@
 *.gz
 *.csv
 *.tsv
-*.gz
+*.gz.*
+*.bam.*
