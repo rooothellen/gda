@@ -1,0 +1,1550 @@
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.1)  13 FEB 2026 14:29
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Homework_Assignment_2.tex
+(./Homework_Assignment_2.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24> (/usr/local/texlive/2022/texmf-dist/tex/latex
+/koma-script/scrartcl.cls
+Document Class: scrartcl 2021/11/13 v3.35 KOMA-Script document class (article)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2021/11/13 v3.35 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2021/11/13 v3.35 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2021/11/13 v3.35 KOMA-Script package (file load hooks)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2021/11/13 v3.35 KOMA-Script package (using LaTeX hooks)
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2021/11/13 v3.35 KOMA-Script package (logo)
+))) (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 368.
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2021/11/13 v3.35 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip47
+\scr@dte@tocline@numbox=\box50
+)
+Package tocbasic Info: babel extension for `toc' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 135.
+Class scrartcl Info: File `scrsize11pt.clo' used instead of
+(scrartcl)           file `scrsize11.clo' to setup font sizes on input line 224
+2.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/koma-script/scrsize11pt.clo
+File: scrsize11pt.clo 2021/11/13 v3.35 KOMA-Script font size class option (11pt
+)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/koma-script/typearea.sty
+Package: typearea 2021/11/13 v3.35 KOMA-Script package (type area)
+\ta@bcor=\skip48
+\ta@div=\count181
+Package typearea Info: You've used standard option `letterpaper'.
+(typearea)             This is correct!
+(typearea)             Internally I'm using `paper=letter'.
+(typearea)             If you'd like to set the option with \KOMAoptions,
+(typearea)             you'd have to use `paper=letter' there
+(typearea)             instead of `letterpaper', too.
+\ta@hblk=\skip49
+\ta@vblk=\skip50
+\ta@temp=\skip51
+\footheight=\skip52
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 11
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 614.295pt
+(typearea)              \textwidth      = 446.76004pt
+(typearea)              DIV departure   = -14%
+(typearea)              \evensidemargin = 11.49748pt
+(typearea)              \oddsidemargin  = 11.49748pt
+(typearea)             \paperheight     = 794.96999pt
+(typearea)              \textheight     = 582.20026pt
+(typearea)              \topmargin      = -37.40001pt
+(typearea)              \headheight     = 17.0pt
+(typearea)              \headsep        = 20.40001pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 47.6pt
+(typearea)              \baselineskip   = 13.6pt
+(typearea)              on input line 1743.
+)
+\c@part=\count182
+\c@section=\count183
+\c@subsection=\count184
+\c@subsubsection=\count185
+\c@paragraph=\count186
+\c@subparagraph=\count187
+\scr@dte@section@maxnumwidth=\skip53
+Class scrartcl Info: using compatibility default `runin=bysign'
+(scrartcl)           for `\section on input line 4852.
+Class scrartcl Info: using compatibility default `afterindent=bysign'
+(scrartcl)           for `\section on input line 4852.
+\scr@dte@part@maxnumwidth=\skip54
+Class scrartcl Info: using compatibility default `afterindent=false'
+(scrartcl)           for `\part on input line 4860.
+\scr@dte@subsection@maxnumwidth=\skip55
+Class scrartcl Info: using compatibility default `runin=bysign'
+(scrartcl)           for `\subsection on input line 4870.
+Class scrartcl Info: using compatibility default `afterindent=bysign'
+(scrartcl)           for `\subsection on input line 4870.
+\scr@dte@subsubsection@maxnumwidth=\skip56
+Class scrartcl Info: using compatibility default `runin=bysign'
+(scrartcl)           for `\subsubsection on input line 4880.
+Class scrartcl Info: using compatibility default `afterindent=bysign'
+(scrartcl)           for `\subsubsection on input line 4880.
+\scr@dte@paragraph@maxnumwidth=\skip57
+Class scrartcl Info: using compatibility default `runin=bysign'
+(scrartcl)           for `\paragraph on input line 4891.
+Class scrartcl Info: using compatibility default `afterindent=bysign'
+(scrartcl)           for `\paragraph on input line 4891.
+\scr@dte@subparagraph@maxnumwidth=\skip58
+Class scrartcl Info: using compatibility default `runin=bysign'
+(scrartcl)           for `\subparagraph on input line 4901.
+Class scrartcl Info: using compatibility default `afterindent=bysign'
+(scrartcl)           for `\subparagraph on input line 4901.
+\abovecaptionskip=\skip59
+\belowcaptionskip=\skip60
+\c@pti@nb@sid@b@x=\box51
+Package tocbasic Info: babel extension for `lof' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 6076.
+
+\scr@dte@figure@maxnumwidth=\skip61
+\c@figure=\count188
+Package tocbasic Info: babel extension for `lot' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 6091.
+
+\scr@dte@table@maxnumwidth=\skip62
+\c@table=\count189
+Class scrartcl Info: Redefining `\numberline' on input line 6258.
+\bibindent=\dimen138
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2021/10/15 v2.17l AMS math features
+\@mathmargin=\skip63
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen139
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen140
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2021/08/26 v2.02 operator names
+)
+\inf@bad=\count190
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count191
+\leftroot@=\count192
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count193
+\DOTSCASE@=\count194
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+\big@size=\dimen141
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count195
+\c@MaxMatrixCols=\count196
+\dotsspace@=\muskip16
+\c@parentequation=\count197
+\dspbrk@lvl=\count198
+\tag@help=\toks18
+\row@=\count199
+\column@=\count266
+\maxfields@=\count267
+\andhelp@=\toks19
+\eqnshift@=\dimen142
+\alignsep@=\dimen143
+\tagshift@=\dimen144
+\tagwidth@=\dimen145
+\totwidth@=\dimen146
+\lineht@=\dimen147
+\@envbody=\toks20
+\multlinegap=\skip64
+\multlinetaggap=\skip65
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/unicode-math/unicode-math.sty (
+/usr/local/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2022-02-24 L3 programming layer (loader) 
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
+(|extractbb --version)
+\c__kernel_sys_dvipdfmx_version_int=\count268
+\l__color_backend_stack_int=\count269
+\g__color_backend_stack_int=\count270
+\g__graphics_track_int=\count271
+\l__pdf_internal_box=\box54
+\g__pdf_backend_object_int=\count272
+\g__pdf_backend_annotation_int=\count273
+\g__pdf_backend_link_int=\count274
+))
+Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.s
+ty
+Package: unicode-math-xetex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLa
+TeX
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2022-01-12 L3 Experimental document command parser
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.st
+y
+Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+(/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count275
+\l__fontspec_language_int=\count276
+\l__fontspec_strnum_int=\count277
+\l__fontspec_tmp_int=\count278
+\l__fontspec_tmpa_int=\count279
+\l__fontspec_tmpb_int=\count280
+\l__fontspec_tmpc_int=\count281
+\l__fontspec_em_int=\count282
+\l__fontspec_emdef_int=\count283
+\l__fontspec_strong_int=\count284
+\l__fontspec_strongdef_int=\count285
+\l__fontspec_tmpa_dim=\dimen148
+\l__fontspec_tmpb_dim=\dimen149
+\l__fontspec_tmpc_dim=\dimen150
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/
+local/texlive/2022/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\g__um_fam_int=\count286
+\g__um_fonts_used_int=\count287
+\l__um_primecount_int=\count288
+\g__um_primekern_muskip=\muskip17
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/unicode-math/unicode-math-table.t
+ex))) (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2022/03/14 v3.0d Micro-typographical refinements (RS)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count289
+)
+\MT@toks=\toks22
+\MT@tempbox=\box55
+\MT@count=\count290
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1027.
+LaTeX Info: Redefining \leftprotrusion on input line 1028.
+LaTeX Info: Redefining \rightprotrusion on input line 1036.
+LaTeX Info: Redefining \textls on input line 1195.
+\MT@outer@kern=\dimen151
+LaTeX Info: Redefining \textmicrotypecontext on input line 1781.
+\MT@listname@count=\count291
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype-xetex.def
+File: microtype-xetex.def 2022/03/14 v3.0d Definitions specific to xetex (RS)
+LaTeX Info: Redefining \lsstyle on input line 236.
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2022/03/14 v3.0d microtype main configuration file (RS)
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 227.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2021/03/18 v5.0k Graphics/color driver for xetex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/svgnam.def
+File: svgnam.def 2021/10/31 v2.13 Predefined colors according to SVG 1.1 (UK)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/x11nam.def
+File: x11nam.def 2021/10/31 v2.13 Predefined colors according to Unix/X11 (UK)
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2021/12/21 4.1b verbatim text (tvz,hv)
+\FV@CodeLineNo=\count292
+\FV@InFile=\read2
+\FV@TabBox=\box56
+\c@FancyVerbLine=\count293
+\FV@StepNumber=\count294
+\FV@OutFile=\write3
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip66
+\fb@frw=\dimen152
+\fb@frh=\dimen153
+\FrameRule=\dimen154
+\FrameSep=\dimen155
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip67
+\LTright=\skip68
+\LTpre=\skip69
+\LTpost=\skip70
+\LTchunksize=\count295
+\LTcapwidth=\dimen156
+\LT@head=\box57
+\LT@firsthead=\box58
+\LT@foot=\box59
+\LT@lastfoot=\box60
+\LT@gbox=\box61
+\LT@cols=\count296
+\LT@rows=\count297
+\c@LT@tables=\count298
+\c@LT@chunks=\count299
+\LT@p@ftn=\toks23
+)
+Class scrartcl Info: longtable captions redefined on input line 112.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen157
+\lightrulewidth=\dimen158
+\cmidrulewidth=\dimen159
+\belowrulesep=\dimen160
+\belowbottomsep=\dimen161
+\aboverulesep=\dimen162
+\abovetopsep=\dimen163
+\cmidrulesep=\dimen164
+\cmidrulekern=\dimen165
+\defaultaddspace=\dimen166
+\@cmidla=\count300
+\@cmidlb=\count301
+\@aboverulesep=\dimen167
+\@belowrulesep=\dimen168
+\@thisruleclass=\count302
+\@lastruleclass=\count303
+\@thisrulewidth=\dimen169
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen170
+\ar@mcellbox=\box62
+\extrarowheight=\dimen171
+\NC@list=\toks24
+\extratabsurround=\skip71
+\backup@length=\skip72
+\ar@cellbox=\box63
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count304
+\calc@Bcount=\count305
+\calc@Adimen=\dimen172
+\calc@Bdimen=\dimen173
+\calc@Askip=\skip73
+\calc@Bskip=\skip74
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count306
+\calc@Cskip=\skip75
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/footnotehyper/footnotehyper.sty
+Package: footnotehyper 2021/08/13 v1.1e hyperref aware footnote.sty (JFB)
+\FNH@notes=\box64
+\FNH@width=\dimen174
+\FNH@toks=\toks25
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 107.
+)
+\Gin@req@height=\dimen175
+\Gin@req@width=\dimen176
+)
+\pandoc@box=\box65
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen177
+\captionmargin=\dimen178
+\caption@leftmargin=\dimen179
+\caption@rightmargin=\dimen180
+\caption@width=\dimen181
+\caption@indent=\dimen182
+\caption@parindent=\dimen183
+\caption@hangindent=\dimen184
+Package caption Info: KOMA-Script document class detected.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption-koma.sto
+File: caption-koma.sto 2020/09/21 v2.0b Adaption of the caption package to the 
+KOMA-Script document classes (AR)
+))
+\c@caption@flags=\count307
+\c@continuedfloat=\count308
+Package caption Info: longtable package is loaded.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count309
+\float@exts=\toks26
+\float@box=\box66
+\@float@everytoks=\toks27
+\@floatcapt=\box67
+)
+\@float@every@codelisting=\toks28
+\c@codelisting=\count310
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
+\c@subfigure=\count311
+\c@subtable=\count312
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2022-02-21 v7.00n Hypertext links for LaTeX
+(/usr/local/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+)
+\@linkdim=\dimen185
+\Hy@linkcounter=\count313
+\Hy@pagecounter=\count314
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2022-02-21 v7.00n Hyperref: PDFDocEncoding definition (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count315
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2022-02-21 v7.00n Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4018.
+Package hyperref Info: Hyper figures OFF on input line 4137.
+Package hyperref Info: Link nesting OFF on input line 4142.
+Package hyperref Info: Hyper index ON on input line 4145.
+Package hyperref Info: Plain pages OFF on input line 4152.
+Package hyperref Info: Backreferencing OFF on input line 4157.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4390.
+\c@Hy@tempcnt=\count316
+(/usr/local/texlive/2022/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4749.
+\XeTeXLinkMargin=\dimen186
+(/usr/local/texlive/2022/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count317
+\Field@Width=\dimen187
+\Fld@charsize=\dimen188
+Package hyperref Info: Hyper figures OFF on input line 6027.
+Package hyperref Info: Link nesting OFF on input line 6032.
+Package hyperref Info: Hyper index ON on input line 6035.
+Package hyperref Info: backreferencing OFF on input line 6042.
+Package hyperref Info: Link coloring OFF on input line 6047.
+Package hyperref Info: Link coloring with OCG OFF on input line 6052.
+Package hyperref Info: PDF/A mode OFF on input line 6057.
+LaTeX Info: Redefining \ref on input line 6097.
+LaTeX Info: Redefining \pageref on input line 6101.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count318
+\c@Item=\count319
+\c@Hfootnote=\count320
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2022-02-21 v7.00n Hyperref driver for XeTeX
+(/usr/local/texlive/2022/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\pdfm@box=\box68
+\c@Hy@AnnotLevel=\count321
+\HyField@AnnotCount=\count322
+\Fld@listcount=\count323
+\c@bookmark@seq@number=\count324
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip76
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
+File: bkm-dvipdfm.def 2020-11-06 v1.29 bookmark driver for dvipdfm (HO)
+\BKM@id=\count325
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/xurl/xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 192.
+No file Homework_Assignment_2.aux.
+\openout1 = `Homework_Assignment_2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+Package scrbase Info: activating english \contentsname on input line 199.
+Package scrbase Info: activating english \listfigurename on input line 199.
+Package scrbase Info: activating english \listtablename on input line 199.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 199.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 199.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 199.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 199.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 199.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 199.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 199.
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999967668407183]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999967668407183]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 199.
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=
+latinmodern-math.otf,Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,St
+yle=MathScriptScript}},BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.3075->s*[0.9999967668407183]"[latinmodern-math.otf]/O
+T:script=math;language=dflt;"<6.57-9.3075>s*[0.9999967668407183]"[latinmodern-m
+ath.otf]/OT:script=math;language=dflt;+ssty=0;"<-6.57>s*[0.9999967668407183]"[l
+atinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999967668407183]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 199.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 199.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
+ line 199.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 199.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
+t line 199.
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096766517402.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096766517402.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096766517402.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096766517402.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096766517402.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=
+latinmodern-math.otf,Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,St
+yle=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAd
+justment={\fontdimen
+(fontspec)             8\font =7.41315pt\relax \fontdimen 9\font
+(fontspec)             =4.3143pt\relax \fontdimen 10\font =4.8618pt\relax
+(fontspec)             \fontdimen 11\font =7.5117pt\relax \fontdimen 12\font
+(fontspec)             =3.77776pt\relax \fontdimen 13\font =3.97485pt\relax
+(fontspec)             \fontdimen 14\font =3.97485pt\relax \fontdimen 15\font
+(fontspec)             =3.16455pt\relax \fontdimen 16\font =2.70465pt\relax
+(fontspec)             \fontdimen 17\font =2.70465pt\relax \fontdimen 18\font
+(fontspec)             =2.7375pt\relax \fontdimen 19\font =2.19pt\relax
+(fontspec)             \fontdimen 22\font =2.7375pt\relax \fontdimen 20\font
+(fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.3075->s*[1.000096766517402]"[latinmodern-math.otf]/OT
+:script=math;language=dflt;"<6.57-9.3075>s*[1.000096766517402]"[latinmodern-mat
+h.otf]/OT:script=math;language=dflt;+ssty=0;"<-6.57>s*[1.000096766517402]"[lati
+nmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =7.41315pt\relax \fontdimen 9\font
+(fontspec)             =4.3143pt\relax \fontdimen 10\font =4.8618pt\relax
+(fontspec)             \fontdimen 11\font =7.5117pt\relax \fontdimen 12\font
+(fontspec)             =3.77776pt\relax \fontdimen 13\font =3.97485pt\relax
+(fontspec)             \fontdimen 14\font =3.97485pt\relax \fontdimen 15\font
+(fontspec)             =3.16455pt\relax \fontdimen 16\font =2.70465pt\relax
+(fontspec)             \fontdimen 17\font =2.70465pt\relax \fontdimen 18\font
+(fontspec)             =2.7375pt\relax \fontdimen 19\font =2.19pt\relax
+(fontspec)             \fontdimen 22\font =2.7375pt\relax \fontdimen 20\font
+(fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.000096766517402]"[latinmodern-math.otf]/OT:scrip
+t=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =7.41315pt\relax \fontdimen 9\font
+(fontspec)             =4.3143pt\relax \fontdimen 10\font =4.8618pt\relax
+(fontspec)             \fontdimen 11\font =7.5117pt\relax \fontdimen 12\font
+(fontspec)             =3.77776pt\relax \fontdimen 13\font =3.97485pt\relax
+(fontspec)             \fontdimen 14\font =3.97485pt\relax \fontdimen 15\font
+(fontspec)             =3.16455pt\relax \fontdimen 16\font =2.70465pt\relax
+(fontspec)             \fontdimen 17\font =2.70465pt\relax \fontdimen 18\font
+(fontspec)             =2.7375pt\relax \fontdimen 19\font =2.19pt\relax
+(fontspec)             \fontdimen 22\font =2.7375pt\relax \fontdimen 20\font
+(fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 199.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
+t line 199.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 199.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
+t line 199.
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998967671640342.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998967671640342.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998967671640342.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998967671640342.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998967671640342.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=
+latinmodern-math.otf,Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,St
+yle=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAd
+justment={\fontdimen
+(fontspec)             8\font =0.438pt\relax \fontdimen 9\font =2.19pt\relax
+(fontspec)             \fontdimen 10\font =1.82864pt\relax \fontdimen 11\font
+(fontspec)             =1.21545pt\relax \fontdimen 12\font =6.56999pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.3075->s*[0.9998967671640342]"[latinmodern-math.otf]/O
+T:script=math;language=dflt;"<6.57-9.3075>s*[0.9998967671640342]"[latinmodern-m
+ath.otf]/OT:script=math;language=dflt;+ssty=0;"<-6.57>s*[0.9998967671640342]"[l
+atinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.438pt\relax \fontdimen 9\font
+(fontspec)             =2.19pt\relax \fontdimen 10\font =1.82864pt\relax
+(fontspec)             \fontdimen 11\font =1.21545pt\relax \fontdimen 12\font
+(fontspec)             =6.56999pt\relax \fontdimen 13\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9998967671640342]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.438pt\relax \fontdimen 9\font
+(fontspec)             =2.19pt\relax \fontdimen 10\font =1.82864pt\relax
+(fontspec)             \fontdimen 11\font =1.21545pt\relax \fontdimen 12\font
+(fontspec)             =6.56999pt\relax \fontdimen 13\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 1
+99.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
+t line 199.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 199
+.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
+t line 199.
+LaTeX Info: Redefining \microtypecontext on input line 199.
+Package microtype Info: Applying patch `item' on input line 199.
+Package microtype Info: Applying patch `toc' on input line 199.
+Package microtype Info: Applying patch `eqnum' on input line 199.
+Package microtype Info: Applying patch `footnote' on input line 199.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using protrusion set `basicmath'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
+File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Mod
+ern Roman (RS)
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring ON on input line 199.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+(/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count326
+)
+LaTeX Info: Redefining \ref on input line 199.
+LaTeX Info: Redefining \pageref on input line 199.
+LaTeX Info: Redefining \nameref on input line 199.
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmss' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 201.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 201.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 201.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+01.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 14.4013pt on input line 201.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 201.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 201.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 14.39845pt on input line 201.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 201.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 201.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 201
+.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 201
+.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+Overfull \hbox (13.13986pt too wide) in paragraph at lines 241--241
+[]\TU/lmtt/m/n/10.95 -- Attaching core tidyverse packages ---------------------
+--- tidyverse 2.0.0 --[] 
+ []
+
+
+Overfull \hbox (13.13986pt too wide) in paragraph at lines 241--241
+[]\TU/lmtt/m/n/10.95 -- Conflicts ------------------------------------------ ti
+dyverse_conflicts() --[] 
+ []
+
+
+Overfull \hbox (133.86359pt too wide) in paragraph at lines 241--241
+[]\TU/lmtt/m/n/10.95 i Use the conflicted package (<http://conflicted.r-lib.org
+/>) to force all conflicts to become errors[] 
+ []
+
+
+Overfull \hbox (70.62735pt too wide) in paragraph at lines 274--274
+[]\TU/lmtt/m/n/10.95 clusterProfiler v4.14.6 Learn more at https://yulab-smu.to
+p/contribution-knowledge-mining/[] 
+ []
+
+[1
+
+
+] [2] [3] [4]
+Overfull \hbox (7.39111pt too wide) in paragraph at lines 464--464
+[]  []\TU/lmtt/m/n/10.95 curl[], []data.table[], []dbplyr[], []Deriv[], []diges
+t[], []doBy[], []dplyr[], []dtplyr[],[] 
+ []
+
+
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 464--464
+[]  []\TU/lmtt/m/n/10.95 gargle[], []gbm[], []generics[], []gert[], []GGally[],
+ []ggplot2[], []ggpubr[], []ggsci[],[] 
+ []
+
+
+Overfull \hbox (7.39111pt too wide) in paragraph at lines 464--464
+[]  []\TU/lmtt/m/n/10.95 ggstats[], []gh[], []glmnet[], []globals[], []glue[], 
+[]googledrive[], []googlesheets4[],[] 
+ []
+
+
+Overfull \hbox (1.64236pt too wide) in paragraph at lines 464--464
+[]  []\TU/lmtt/m/n/10.95 gplots[], []hardhat[], []haven[], []hms[], []htmltools
+[], []httr[], []httr2[], []igraph[],[] 
+ []
+
+
+Overfull \hbox (7.39111pt too wide) in paragraph at lines 464--464
+[]  []\TU/lmtt/m/n/10.95 reshape2[], []reticulate[], []rlang[], []rmarkdown[], 
+[]ROCR[], []RSQLite[], []rstatix[],[] 
+ []
+
+[5]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.665pt on input line 520.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.475pt on input line 520.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.95099pt on input line 520.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.66568pt on input line 520.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.4755pt on input line 520.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 10.94882pt on input line 520.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.66417pt on input line 520.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.47441pt on input line 520.
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+[6]
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-italic]:mapping=te
+x-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-italic]:mapping=te
+x-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ∆ (U+2206) in font [lmroman10-regular]:mapping=t
+ex-text;!
+[7] [8]
+Overfull \hbox (5485.9487pt too wide) in paragraph at lines 684--684
+[]                                                                             
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+ \TU/lmtt/m/n/10.95 geneID[] 
+ []
+
+
+Overfull \hbox (5485.94849pt too wide) in paragraph at lines 684--684
+[]\TU/lmtt/m/n/10.95 GO:0005975                     YMR105C/YML100W/YKL035W/YLR
+258W/YMR196W/YFR053C/YDR001C/YBR126C/YDR516C/YHR104W/YDR074W/YEL011W/YFR015C/YP
+R160W/YBR149W/YMR261C/YGR248W/YFR017C/YPR026W/YLL026W/YPR184W/YDL022W/YKR058W/Y
+BR053C/YER062C/YBR001C/YGR194C/YML070W/YJR096W/YCL040W/YOR347C/YNR034W/YAL017W/
+YER054C/YBR056W/YOR120W/YMR278W/YHR043C/YIL107C/YDR477W/YOR178C/YJL155C/YOR245C
+/YNR001C/YJL052W/YIL155C/YBR145W/YCR073W-A/YLR345W/YIR007W/YLR174W/YGL156W/YGL2
+27W/YMR135C/YGR287C/YNR071C/YJL089W/YBL058W/YER177W/YLR081W/YDL021W/YGL062W/YGL
+059W/YDR099W/YGR256W/YJL034W/YOL157C/YPR001W/YGR043C/YFR003C/YGR288W/YNL117W/YE
+L012W/YDL085W/YBR229C/YCR012W/YLR134W/YMR280C/YIL017C/YDL066W/YER065C/YGL084C/Y
+HR174W/YPL248C/YLR446W/YML028W/YCL018W/YHR044C/YMR311C/YEL070W/YJR159W/YIL053W/
+YDR261C/YBR297W/YOL059W/YIL097W/YFR042W/YOL086C/YGR066C/YDL247W/YIL099W/YGR254W
+/YIL045W/YDR050C/YLR273C/YIL172C/YJL221C/YDR368W/YJR160C/YBR018C/YBR020W/YNL249
+C/YPL031C/YPL219W/YCL039W/YDR255C/YER003C/YCR005C/YJR009C/YBR299W/YDR009W/YHR10
+1C/YKL152C/YNL009W/YGR032W[] 
+ []
+
+
+Overfull \hbox (5485.94867pt too wide) in paragraph at lines 684--684
+[]\TU/lmtt/m/n/10.95 GO:0005996                                                
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                      YMR105C/YFR053C/YDR516C/YHR104W/YBR053C/Y
+GR194C/YJR096W/YCL040W/YOR120W/YMR278W/YHR043C/YIL107C/YDR477W/YJL155C/YJL052W/
+YBR145W/YLR345W/YGL156W/YGL227W/YMR135C/YNR071C/YJL089W/YLR081W/YGL062W/YGL059W
+/YEL012W/YDL085W/YCR012W/YLR134W/YIL017C/YPL248C/YLR446W/YML028W/YHR044C/YJR159
+W/YIL097W/YOL086C/YGR066C/YDR050C/YDR368W/YBR018C/YBR020W/YNL249C/YCL039W/YDR25
+5C/YJR009C/YDR009W/YKL152C[] 
+ []
+
+
+Overfull \hbox (5485.94843pt too wide) in paragraph at lines 684--684
+[]\TU/lmtt/m/n/10.95 GO:0019362                                                
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                    YFR053C/YDR
+516C/YKL151C/YGL037C/YGR248W/YMR315W/YDL022W/YML120C/YNL200C/YOR374W/YCL040W/YO
+R347C/YNR034W/YBR117C/YJR025C/YJL052W/YIL155C/YBR145W/YCR073W-A/YLR345W/YLR174W
+/YDL021W/YGR256W/YGR043C/YDL085W/YCR012W/YDR481C/YDL066W/YLR231C/YHR174W/YEL041
+W/YLR446W/YOL059W/YMR303C/YOL086C/YJR078W/YGR254W/YDR050C/YHR202W/YDR400W/YMR08
+3W/YJR009C/YKL152C/YNL009W[] 
+ []
+
+
+Overfull \hbox (5485.94843pt too wide) in paragraph at lines 684--684
+[]\TU/lmtt/m/n/10.95 GO:0046496                                                
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                            YFR
+053C/YDR516C/YKL151C/YGR248W/YMR315W/YDL022W/YML120C/YNL200C/YOR374W/YCL040W/YO
+R347C/YNR034W/YBR117C/YJR025C/YJL052W/YIL155C/YBR145W/YCR073W-A/YLR345W/YLR174W
+/YDL021W/YGR256W/YGR043C/YDL085W/YCR012W/YDR481C/YDL066W/YLR231C/YHR174W/YEL041
+W/YLR446W/YOL059W/YMR303C/YOL086C/YJR078W/YGR254W/YDR050C/YHR202W/YDR400W/YMR08
+3W/YJR009C/YKL152C/YNL009W[] 
+ []
+
+
+Overfull \hbox (5485.94867pt too wide) in paragraph at lines 684--684
+[]\TU/lmtt/m/n/10.95 GO:0019318                                                
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+       YMR105C/YFR053C/YDR516C/YHR104W/YCL040W/YMR278W/YHR043C/YIL107C/YDR477W/
+YJL155C/YJL052W/YBR145W/YLR345W/YGL156W/YGL227W/YMR135C/YNR071C/YJL089W/YLR081W
+/YGL062W/YGL059W/YEL012W/YDL085W/YCR012W/YLR134W/YIL017C/YPL248C/YLR446W/YML028
+W/YHR044C/YJR159W/YIL097W/YOL086C/YGR066C/YDR050C/YBR018C/YBR020W/YCL039W/YDR25
+5C/YJR009C/YDR009W/YKL152C[] 
+ []
+
+
+Overfull \hbox (5485.9483pt too wide) in paragraph at lines 684--684
+[]\TU/lmtt/m/n/10.95 GO:0006508 YOL153C/YLL039C/YBL075C/YLR178C/YNL007C/YBR169C
+/YNL015W/YBR139W/YBL005W-B/YAL005C/YNL284C-B/YMR297W/YMR045C/YPL154C/YKL103C/YN
+L045W/YIR039C/YHR028C/YFL062W/YKL100C/YLR299W/YJL048C/YLR035C-A/YGR295C/YHL048W
+/YLL029W/YMR304W/YLL024C/YEL060C/YNL239W/YDR358W/YOR192C-B/YBR280C/YLR352W/YDL1
+26C/YGL227W/YMR119W/YMR135C/YCL052C/YLR120C/YOR219C/YBL058W/YOL082W/YBL100W-B/Y
+ER098W/YDL248W/YML132W/YJL034W/YJR161C/YHR113W/YNL054W-B/YOR003W/YKL171W/YOR343
+W-B/YCR068W/YGR136W/YEL012W/YDR059C/YGR161W-B/YKL124W/YMR184W/YNL155W/YOL013C/Y
+OR124C/YLR207W/YFL002W-A/YCL043C/YFR021W/YNL223W/YER162C/YIL017C/YDR330W/YCL019
+W/YBR201W/YKL157W/YMR022W/YDR273W/YGL240W/YOR256C/YNL159C/YDR411C/YLR410W-B/YML
+068W/YKL133C/YGR225W/YBR041W/YIL097W/YJL144W/YER138C/YDR394W/YBR082C/YGR066C/YI
+L108W/YJL073W/YKL219W/YML029W/YOL057W/YOR157C/YDR069C/YER143W/YNR075W/YER094C/Y
+GL141W/YCL039W/YGR048W/YDL007W/YCL044C/YDR255C/YER012W/YDR034C-D/YJL001W/YPL191
+C/YER021W/YFR050C/YKL213C/YNL336W/YKL034W/YMR214W/YIL075C/YPL236C/YBR173C/YCL05
+7W/YDR057W/YLR104W/YIL015W[] 
+ []
+
+Missing character: There is no ≤ (U+2264) in font [lmroman10-regular]:mapping=t
+ex-text;!
+[9] [10]
+Overfull \hbox (14166.55936pt too wide) in paragraph at lines 811--811
+[]                                                                             
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+          \TU/lmtt/m/n/10.95 geneID[] 
+ []
+
+
+Overfull \hbox (14166.55853pt too wide) in paragraph at lines 811--811
+[]\TU/lmtt/m/n/10.95 GO:0042254                                                
+                                                                               
+  YJL050W/YDR101C/YMR049C/YGR158C/YJL069C/YPR010C/YNL132W/YPR144C/YEL055C/YHR19
+7W/YBR142W/YGR162W/YIL069C/YNL096C/YPR110C/YLL034C/YLR186W/YGR159C/YHR170W/YLR1
+06C/YOR119C/YHR089C/YDR496C/YGL078C/YKL014C/YHL033C/YDL060W/YPL211W/YJL010C/YOR
+206W/YGR214W/YOR341W/YBR189W/YPL093W/YOL080C/YGL171W/YPR041W/YNL061W/YMR131C/YJ
+L177W/YLR409C/YNL002C/YDR161W/YOR340C/YOR234C/YDR449C/YKL009W/YLR196W/YGL120C/Y
+OR310C/YBR247C/YCR057C/YHL001W/YLR129W/YLR063W/YDL166C/YGR085C/YIL091C/YJL109C/
+YHR088W/YNL248C/YOR272W/YIR012W/YMR229C/YLR448W/YLR002C/YOL010W/YPL012W/YGL076C
+/YLL008W/YOR243C/YIL110W/YIL133C/YHR052W/YOR001W/YLR197W/YLR222C/YPR169W/YKR081
+C/YLR435W/YKL032C/YGR128C/YLR336C/YCR072C/YML063W/YOR056C/YHR169W/YOL041C/YLR17
+5W/YER131W/YDR025W/YEL054C/YDR060W/YHR085W/YDR500C/YLR048W/YOR224C/YNL113W/YHR0
+66W/YOR048C/YPL226W/YOL121C/YDR324C/YLR344W/YOL077C/YDR418W/YPR112C/YDR083W/YDL
+083C/YNL207W/YDR447C/YPL090C/YML073C/YJL033W/YOR096W/YKR024C/YBL004W/YLL045C/YJ
+R063W/YKR063C/YGL111W/YBR181C/YBR267W/YNL075W/YOR294W/YER102W/YDL031W/YNL182C/Y
+GR245C/YDL148C/YDL208W/YML026C/YNL124W/YGR251W/YOR293W/YPL266W/YOR063W/YFR031C-
+A/YLR276C/YDR091C/YJL122W/YDL014W/YDL136W/YAL035W/YJL148W/YGR034W/YOR098C/YER12
+7W/YKL021C/YOL144W/YHR065C/YEL026W/YLR397C/YMR093W/YHR148W/YGR145W/YGL123W/YER0
+82C/YJL191W/YMR290C/YKL099C/YER056C-A/YOL022C/YCR047C/YKR057W/YHR196W/YDR087C/Y
+DR398W/YNL022C/YPR132W/YER074W/YPL217C/YPR102C/YLR167W/YHR062C/YJR002W/YGL099W/
+YFL002C/YPR137W/YIL052C/YNR053C/YDL213C/YNL302C/YDR450W/YNR038W/YPR187W/YBR141C
+/YBL072C/YOL021C/YMR230W/YJR041C/YDL153C/YNR054C/YCL054W/YBR048W/YMR128W/YDR361
+C/YJL136C/YDR339C/YBR154C/YAL059W/YML093W/YNL069C/YAL025C/YOR287C/YDR312W/YNL16
+3C/YGR280C/YPL143W/YOL127W/YMR239C/YML024W/YLR264W/YKL172W/YIL019W/YPL043W/YER1
+26C/YPL082C/YHR143W-A/YER002W/YKR060W/YHR081W/YGL030W/YER006W/YNR046W/YLR009W/Y
+BL018C/YGR095C/YGL135W/YDR365C/YBR257W/YGR030C/YNL308C/YLR185W/YNL227C/YHR064C/
+YOR078W/YDL229W/YNL209W/YNL221C/YIR026C/YDL036C/YGL097W/YOL142W/YHR021C/YDR299W
+/YOL040C/YGR285C/YDR021W/YLR051C/YLR068W/YNL110C/YNL112W/YCR087C-A/YPR016C/YPL2
+39W/YLL011W/YLR340W/YMR014W/YPL126W/YOR004W/YCL059C/YOR145C/YLR221C/YKL082C/YPR
+143W/YDR478W/YKL006W/YIL096C/YOR369C/YHR069C/YCR031C/YDR432W/YGR271C-A/YDR412W/
+YHR072W-A/YLL035W/YML010W/YNR024W/YKL078W/YOR167C/YPL146C/YFR001W/YFL023W/YDR15
+6W/YAL033W/YMR269W/YOR006C/YDL063C/YCR016W/YPL193W/YGR103W/YLR074C/YKL143W/YGR0
+81C/YHR040W/YJR055W/YER036C/YGL029W[] 
+ []
+
+
+Overfull \hbox (14166.55847pt too wide) in paragraph at lines 811--811
+[]\TU/lmtt/m/n/10.95 GO:0022613 YJL050W/YDR101C/YMR049C/YGR158C/YJL069C/YPR010C
+/YNL132W/YPR144C/YEL055C/YHR197W/YBR142W/YGR162W/YIL069C/YNL096C/YPR110C/YLL034
+C/YLR186W/YGR159C/YHR170W/YLR106C/YOR119C/YHR089C/YDR496C/YGL078C/YKL014C/YHL03
+3C/YDL060W/YPL211W/YJL010C/YOR206W/YGR214W/YOR341W/YBR189W/YPL093W/YOL080C/YGL1
+71W/YPR041W/YNL061W/YMR131C/YJL177W/YLR409C/YNL002C/YDR161W/YOR340C/YOR234C/YDR
+449C/YKL009W/YLR196W/YBR079C/YGL120C/YOR310C/YBR247C/YCR057C/YHL001W/YER025W/YL
+R129W/YLR063W/YDL166C/YGR085C/YIL091C/YJL109C/YHR088W/YNL248C/YOR272W/YIR012W/Y
+MR229C/YLR448W/YLR002C/YOL010W/YPL012W/YGL076C/YLL008W/YOR243C/YIL110W/YIL133C/
+YHR052W/YOR001W/YLR197W/YLR222C/YPR169W/YKR081C/YLR435W/YKL032C/YGR128C/YLR336C
+/YCR072C/YML063W/YOR056C/YHR169W/YOL041C/YLR175W/YER131W/YDR025W/YPR163C/YEL054
+C/YDR060W/YHR085W/YDR500C/YLR048W/YOR224C/YNL113W/YHR066W/YOR048C/YPL226W/YLR41
+9W/YOL121C/YDR324C/YLR344W/YOL077C/YDR418W/YPR112C/YDR083W/YDL083C/YNL207W/YDR4
+47C/YPL090C/YML073C/YJL033W/YOR096W/YKR024C/YBL004W/YLL045C/YJR063W/YKR063C/YGL
+111W/YBR181C/YBR267W/YNL075W/YOR294W/YER102W/YDL031W/YNL182C/YGR245C/YDL148C/YD
+L208W/YML026C/YNL124W/YGR251W/YOR293W/YPL266W/YOR063W/YFR031C-A/YLR276C/YDR091C
+/YJL122W/YDL014W/YIL104C/YDL136W/YAL035W/YJL148W/YGR034W/YOR098C/YER127W/YKL021
+C/YOL144W/YHR065C/YEL026W/YPL237W/YLR397C/YMR093W/YHR148W/YGR145W/YGL123W/YER08
+2C/YJL191W/YMR290C/YKL099C/YER056C-A/YOL022C/YCR047C/YKR057W/YHR196W/YDR087C/YD
+R398W/YOL139C/YNL022C/YPR132W/YER074W/YPL217C/YDR429C/YPR102C/YLR167W/YHR062C/Y
+JR002W/YGL099W/YFL002C/YPR137W/YIL052C/YLR325C/YNR053C/YDL213C/YNL302C/YDR450W/
+YNR038W/YPR187W/YBR141C/YBL072C/YOL021C/YMR230W/YJR041C/YDL153C/YNR054C/YCL054W
+/YBR048W/YMR128W/YDR361C/YJL136C/YDR339C/YBR154C/YAL059W/YML093W/YNL069C/YAL025
+C/YOR287C/YDR312W/YNL163C/YGR280C/YPL143W/YOL127W/YMR239C/YML024W/YLR264W/YKL17
+2W/YIL019W/YPL043W/YER126C/YPL082C/YHR143W-A/YER002W/YKR060W/YHR081W/YGL030W/YE
+R006W/YNR046W/YLR009W/YBL018C/YGR095C/YGL135W/YDR365C/YBR257W/YGR030C/YNL308C/Y
+LR185W/YNL227C/YHR064C/YOR078W/YDL229W/YNL209W/YNL221C/YIR026C/YDL036C/YGL097W/
+YOL142W/YMR260C/YHR021C/YDR299W/YOL040C/YGR285C/YDR021W/YLR051C/YLR068W/YNL110C
+/YNL112W/YCR087C-A/YPR016C/YPL239W/YLL011W/YLR340W/YMR014W/YPL126W/YLR323C/YOR0
+04W/YCL059C/YOR145C/YLR221C/YKL082C/YPR143W/YDR478W/YKL006W/YIL096C/YOR369C/YKR
+059W/YHR069C/YCR031C/YDR432W/YGR271C-A/YDR412W/YHR072W-A/YLL035W/YML010W/YNR024
+W/YKL078W/YOR167C/YPL146C/YNL244C/YFR001W/YFL023W/YDR156W/YAL033W/YMR269W/YOR00
+6C/YOR204W/YDL063C/YCR016W/YPL193W/YDR243C/YGR103W/YLR074C/YKL143W/YJL138C/YGR0
+81C/YHR040W/YJR055W/YER036C/YGL029W[] 
+ []
+
+
+Overfull \hbox (14166.55933pt too wide) in paragraph at lines 811--811
+[]\TU/lmtt/m/n/10.95 GO:0006364                                                
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                               YJL050W/YMR049C/YGR158C/YJL069C/YNL132W/YPR144C/
+YEL055C/YHR197W/YBR142W/YIL069C/YNL096C/YLR186W/YGR159C/YLR106C/YOR119C/YHR089C
+/YGL078C/YKL014C/YHL033C/YDL060W/YPL211W/YJL010C/YGR214W/YBR189W/YPL093W/YOL080
+C/YGL171W/YNL061W/YMR131C/YJL177W/YLR409C/YNL002C/YDR449C/YKL009W/YLR196W/YGL12
+0C/YOR310C/YBR247C/YCR057C/YHL001W/YLR129W/YLR063W/YDL166C/YIL091C/YJL109C/YHR0
+88W/YOR272W/YMR229C/YLR002C/YOL010W/YPL012W/YGL076C/YLL008W/YOR243C/YIL133C/YHR
+052W/YOR001W/YLR197W/YLR222C/YKR081C/YLR435W/YGR128C/YML063W/YOR056C/YHR169W/YO
+L041C/YLR175W/YER131W/YDR025W/YHR085W/YDR500C/YLR048W/YHR066W/YOR048C/YDR324C/Y
+OL077C/YPR112C/YDR083W/YDL083C/YNL207W/YPL090C/YJL033W/YOR096W/YKR024C/YBL004W/
+YLL045C/YKR063C/YGL111W/YBR181C/YNL075W/YOR294W/YER102W/YDL031W/YNL182C/YDL148C
+/YDL208W/YML026C/YNL124W/YGR251W/YPL266W/YOR063W/YLR276C/YDR091C/YDL014W/YDL136
+W/YAL035W/YER127W/YKL021C/YOL144W/YHR065C/YEL026W/YMR093W/YHR148W/YGR145W/YGL12
+3W/YER082C/YJL191W/YMR290C/YKL099C/YOL022C/YCR047C/YKR057W/YHR196W/YDR087C/YDR3
+98W/YNL022C/YPR132W/YER074W/YPL217C/YLR167W/YHR062C/YJR002W/YFL002C/YPR137W/YDL
+213C/YDR450W/YNR038W/YBR141C/YBL072C/YOL021C/YJR041C/YDL153C/YNR054C/YCL054W/YB
+R048W/YMR128W/YJL136C/YDR339C/YML093W/YNL069C/YAL025C/YOR287C/YDR312W/YGR280C/Y
+PL143W/YMR239C/YLR264W/YKL172W/YIL019W/YPL043W/YER126C/YPL082C/YER002W/YKR060W/
+YHR081W/YGL030W/YER006W/YNR046W/YBL018C/YGR095C/YGL135W/YDR365C/YBR257W/YGR030C
+/YNL308C/YLR185W/YNL227C/YHR064C/YOR078W/YDL229W/YNL209W/YNL221C/YDL036C/YOL142
+W/YHR021C/YDR299W/YGR285C/YDR021W/YLR051C/YLR068W/YNL110C/YNL112W/YCR087C-A/YPR
+016C/YLL011W/YMR014W/YPL126W/YOR004W/YCL059C/YOR145C/YKL082C/YPR143W/YDR478W/YK
+L006W/YIL096C/YOR369C/YHR069C/YCR031C/YGR271C-A/YDR412W/YHR072W-A/YLL035W/YML01
+0W/YNR024W/YKL078W/YOR167C/YPL146C/YFR001W/YFL023W/YAL033W/YOR006C/YCR016W/YGR1
+03W/YGR081C/YHR040W/YJR055W/YGL029W[] 
+ []
+
+
+Overfull \hbox (14166.55919pt too wide) in paragraph at lines 811--811
+[]\TU/lmtt/m/n/10.95 GO:0016072                                                
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                     YJL050W/YM
+R049C/YGR158C/YJL069C/YPR010C/YNL132W/YPR144C/YEL055C/YHR197W/YBR142W/YIL069C/Y
+NL096C/YLR186W/YGR159C/YLR106C/YOR119C/YHR089C/YGL078C/YKL014C/YHL033C/YDL060W/
+YPL211W/YJL010C/YGR214W/YOR341W/YBR189W/YPL093W/YOL080C/YGL171W/YNL061W/YMR131C
+/YJL177W/YLR409C/YNL002C/YOR340C/YDR449C/YKL009W/YLR196W/YGL120C/YOR310C/YBR247
+C/YCR057C/YHL001W/YLR129W/YLR063W/YDL166C/YIL091C/YJL109C/YHR088W/YNL248C/YOR27
+2W/YMR229C/YLR002C/YOL010W/YPL012W/YGL076C/YLL008W/YOR243C/YIL133C/YHR052W/YOR0
+01W/YLR197W/YLR222C/YKR081C/YLR435W/YGR128C/YML063W/YOR056C/YHR169W/YOL041C/YLR
+175W/YER131W/YDR025W/YHR085W/YDR500C/YLR048W/YHR066W/YOR048C/YDR324C/YOL077C/YP
+R112C/YDR083W/YDL083C/YNL207W/YPL090C/YJL033W/YOR096W/YKR024C/YBL004W/YLL045C/Y
+JR063W/YKR063C/YGL111W/YBR181C/YNL075W/YOR294W/YER102W/YDL031W/YNL182C/YDL148C/
+YDL208W/YML026C/YNL124W/YGR251W/YPL266W/YOR063W/YLR276C/YDR091C/YDL014W/YDL136W
+/YAL035W/YJL148W/YER127W/YKL021C/YOL144W/YHR065C/YEL026W/YMR093W/YHR148W/YGR145
+W/YGL123W/YER082C/YJL191W/YMR290C/YKL099C/YOL022C/YCR047C/YKR057W/YHR196W/YDR08
+7C/YDR398W/YNL022C/YPR132W/YER074W/YPL217C/YLR167W/YHR062C/YJR002W/YFL002C/YPR1
+37W/YDL213C/YDR450W/YNR038W/YBR141C/YBL072C/YOL021C/YJR041C/YDL153C/YNR054C/YCL
+054W/YBR048W/YMR128W/YJL136C/YDR339C/YML093W/YNL069C/YAL025C/YOR287C/YDR312W/YG
+R280C/YPL143W/YMR239C/YLR264W/YKL172W/YIL019W/YNL023C/YPL043W/YER126C/YPL082C/Y
+ER002W/YKR060W/YHR081W/YGL030W/YER006W/YNR046W/YBL018C/YGR095C/YGL135W/YDR365C/
+YBR257W/YGR030C/YNL308C/YLR185W/YNL227C/YHR064C/YOR078W/YDL229W/YNL209W/YBL014C
+/YNL221C/YDL036C/YOL142W/YHR021C/YDR299W/YGR285C/YDR021W/YLR051C/YLR068W/YNL110
+C/YNL112W/YCR087C-A/YPR016C/YNL088W/YLL011W/YMR014W/YPL126W/YOR004W/YCL059C/YOR
+145C/YKL082C/YPR143W/YDR478W/YKL006W/YIL096C/YOR369C/YHR069C/YCR031C/YGR271C-A/
+YJL025W/YDR412W/YMR116C/YKL049C/YHR072W-A/YLL035W/YML010W/YNR024W/YKL078W/YOR16
+7C/YPL146C/YFR001W/YFL023W/YDR156W/YAL033W/YOR006C/YCR016W/YBR010W/YGR103W/YML0
+43C/YGR081C/YHR040W/YJR055W/YGL029W[] 
+ []
+
+
+Overfull \hbox (14166.55908pt too wide) in paragraph at lines 811--811
+[]\TU/lmtt/m/n/10.95 GO:0042274                                                
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                      YJL069C/YNL132W/YPR144C/YIL069C/YNL096C/Y
+LR186W/YGR159C/YOR119C/YDL060W/YJL010C/YGR214W/YBR189W/YGL171W/YDR449C/YGL120C/
+YOR310C/YBR247C/YCR057C/YLR129W/YDL166C/YIL091C/YJL109C/YMR229C/YOL010W/YPL012W
+/YLR222C/YLR435W/YGR128C/YLR336C/YML063W/YOR056C/YHR169W/YDR025W/YLR048W/YPL226
+W/YOL121C/YDR324C/YPR112C/YDL083C/YNL207W/YDR447C/YPL090C/YOR096W/YBL004W/YBR18
+1C/YNL075W/YOR294W/YER102W/YDL148C/YML026C/YGR251W/YPL266W/YAL035W/YER127W/YHR0
+65C/YEL026W/YMR093W/YHR148W/YGR145W/YER082C/YJL191W/YMR290C/YKL099C/YOL022C/YCR
+047C/YKR057W/YHR196W/YDR398W/YPR132W/YER074W/YPL217C/YLR167W/YJR002W/YPR137W/YD
+L213C/YNL302C/YDR450W/YBL072C/YDL153C/YNR054C/YBR048W/YMR128W/YJL136C/YDR339C/Y
+ML093W/YOR287C/YML024W/YLR264W/YIL019W/YKR060W/YNR046W/YNL308C/YOR078W/YHR021C/
+YDR299W/YOL040C/YDR021W/YLR051C/YLR068W/YPL239W/YLL011W/YMR014W/YPL126W/YOR004W
+/YCL059C/YOR145C/YKL082C/YOR369C/YCR031C/YGR271C-A/YKL078W/YOR167C/YFR001W/YMR2
+69W/YOR006C/YGR103W/YKL143W/YGR081C[] 
+ []
+
+
+Overfull \hbox (14166.55914pt too wide) in paragraph at lines 811--811
+[]\TU/lmtt/m/n/10.95 GO:0042273                                                
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                              Y
+MR049C/YEL055C/YHR197W/YBR142W/YGR162W/YLL034C/YLR106C/YDR496C/YGL078C/YKL014C/
+YHL033C/YPL211W/YOR206W/YPL093W/YOL080C/YNL061W/YJL177W/YNL002C/YDR161W/YOR234C
+/YKL009W/YGL120C/YHL001W/YGR085C/YHR088W/YOR272W/YIR012W/YMR229C/YLR448W/YLR002
+C/YGL076C/YLL008W/YIL110W/YIL133C/YHR052W/YPR169W/YKR081C/YLR435W/YCR072C/YOL04
+1C/YER131W/YEL054C/YDR060W/YHR085W/YDR500C/YHR066W/YOR048C/YLR344W/YOL077C/YDR4
+18W/YDR083W/YML073C/YKR024C/YLL045C/YKR063C/YGL111W/YBR267W/YOR294W/YDL031W/YNL
+182C/YGR245C/YDL208W/YOR063W/YFR031C-A/YLR276C/YDR091C/YJL122W/YDL136W/YGR034W/
+YKL021C/YOL144W/YEL026W/YLR397C/YMR290C/YPR102C/YGL099W/YFL002C/YNR038W/YCL054W
+/YNL069C/YAL025C/YDR312W/YPL143W/YOL127W/YKL172W/YPL043W/YER126C/YER002W/YKR060
+W/YER006W/YNR046W/YLR009W/YGL135W/YLR185W/YNL227C/YIR026C/YNL110C/YPR016C/YLR34
+0W/YLR221C/YKL082C/YPR143W/YKL006W/YDR412W/YLL035W/YPL146C/YFR001W/YDL063C/YCR0
+16W/YPL193W/YGR103W/YHR040W/YJR055W[] 
+ []
+
+[11] [12]
+Overfull \hbox (346.56729pt too wide) in paragraph at lines 905--905
+[]                                                                             
+                                                       \TU/lmtt/m/n/10.95 geneI
+D[] 
+ []
+
+
+Overfull \hbox (346.56726pt too wide) in paragraph at lines 905--905
+[]\TU/lmtt/m/n/10.95 GO:0170039 YBL039C/YEL046C/YOL058W/YOR108W/YPR145W/YER091C
+/YGL009C/YMR189W/YJL200C/YLR180W/YIL167W/YLL062C/YLR303W/YPR035W/YGL125W/YDR380
+W[] 
+ []
+
+
+Overfull \hbox (346.56726pt too wide) in paragraph at lines 905--905
+[]\TU/lmtt/m/n/10.95 GO:0170033 YBL039C/YEL046C/YOL058W/YOR108W/YPR145W/YER091C
+/YGL009C/YMR189W/YJL200C/YLR180W/YIL167W/YLL062C/YLR303W/YPR035W/YGL125W/YDR380
+W[] 
+ []
+
+
+Overfull \hbox (346.56726pt too wide) in paragraph at lines 905--905
+[]\TU/lmtt/m/n/10.95 GO:1901605 YBL039C/YEL046C/YOL058W/YOR108W/YPR145W/YER091C
+/YGL009C/YMR189W/YJL200C/YLR180W/YIL167W/YLL062C/YLR303W/YPR035W/YGL125W/YDR380
+W[] 
+ []
+
+
+Overfull \hbox (346.56726pt too wide) in paragraph at lines 905--905
+[]\TU/lmtt/m/n/10.95 GO:0009066                                                
+         YEL046C/YPR145W/YER091C/YJL200C/YLR180W/YLL062C/YLR303W/YGL125W/YDR380
+W[] 
+ []
+
+
+Overfull \hbox (346.56729pt too wide) in paragraph at lines 905--905
+[]\TU/lmtt/m/n/10.95 GO:0032197                                                
+             YBL005W-B/YNL284C-B/YMR045C/YBL005W-A/YLR035C-A/YDR170W-A/YOR192C-
+B[] 
+ []
+
+
+Overfull \hbox (346.56726pt too wide) in paragraph at lines 905--905
+[]\TU/lmtt/m/n/10.95 GO:0006520 YBL039C/YEL046C/YOL058W/YOR108W/YPR145W/YER091C
+/YGL009C/YMR189W/YJL200C/YLR180W/YIL167W/YLL062C/YLR303W/YPR035W/YGL125W/YDR380
+W[] 
+ []
+
+[13
+! This can't happen (vlistout).
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.933 \textbf{attached base packages:}
+                                       \emph{stats4}, \emph{stats}, 
+Here is how much of TeX's memory you used:
+ 23640 strings out of 476179
+ 457172 string characters out of 5809544
+ 1147875 words of memory out of 5000000
+ 44084 multiletter control sequences out of 15000+600000
+ 475690 words of font info for 78 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 108i,8n,121p,10616b,516s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on Homework_Assignment_2.pdf (13 pages).

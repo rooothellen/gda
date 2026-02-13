@@ -14,6 +14,8 @@ knitr::opts_chunk$set(echo = TRUE, cache=FALSE)
 ```
 
 ```{r import-dependencies}
+#| message: false
+#| warning: false
 library(readr)
 library(tidyverse)
 library(dplyr)
@@ -78,7 +80,7 @@ Answer the following questions. Where relevant, either type your answers below e
 
 1.  For the YPS606 wild type ethanol response (yps606_wt_et_oh_response), generate two gene lists: one where you select genes with an FDR \< 0.01 and that are upregulated with logFC of at least 1, and a second set where you use an FDR \< 0.05
 
-```{r}
+```{r gene-list-1}
 wtEtOHresponse_up_05 <- msn24_EtOH %>%
   filter(fdr_YPS606_WT_EtOH_response < 0.05, 
          logFC_YPS606_WT_etoh_response >= 1)
@@ -94,7 +96,7 @@ wtEtOHresponse_up_05_go <- wtEtOHresponse_up_05 %>%
   arrange(pvalue)
 ```
 
-```{r}
+```{r gene-list-2}
 wtEtOHresponse_up_01 <- msn24_EtOH %>%
   filter(fdr_YPS606_WT_EtOH_response < 0.01, 
          logFC_YPS606_WT_etoh_response >= 1)
@@ -110,7 +112,7 @@ wtEtOHresponse_up_01_go <- wtEtOHresponse_up_01 %>%
   arrange(pvalue)
 ```
 
-```{r}
+```{r show-gene-list}
 head(wtEtOHresponse_up_01_go)
 ```
 
@@ -123,6 +125,7 @@ For the genes upregulated at FDR \< 0.01 logFC ≤ 1, the background ratio (or t
 3.  For the upregulated comparison in question 1, change the logFC cutoff to at least 0 (so any amount of upregulation, no matter how small). What is the mean and median log fold change for genes with that logFC cutoff and a pval \< 0.01 but fdr \> 0.01? Are there any GO terms enriched for genes? What was your expectation
 
 ```{r}
+#| warning: false
 msn24_EtOH %>%
   filter(fdr_YPS606_WT_EtOH_response > 0.01,   # FDR > 0.01
          logFC_YPS606_WT_etoh_response >= 0,   # logFC is at least 0
@@ -141,7 +144,7 @@ msn24_EtOH %>%
 ```{r}
 mutantEtOhresponse <- msn24_EtOH %>%
   filter(fdr_YPS606_msn24dd_EtOH_response < 0.01, 
-         fdr_YPS606_msn24dd_EtOH_response <= -1
+         logFC_YPS606_msn24dd_EtOH_response <= -1
   )
 
 mutantEtOhresponse_go <- mutantEtOhresponse %>%
@@ -150,7 +153,7 @@ mutantEtOhresponse_go <- mutantEtOhresponse %>%
     OrgDb = "org.Sc.sgd.db",
     universe = msn24_EtOH$gene_id,
     keyType = "ORF",
-    ont= "BP") %>%
+    ont = "BP") %>%
   mutate(richFactor = Count / as.numeric(sub("/\\d+", "", BgRatio))) %>%
   arrange(pvalue)
 

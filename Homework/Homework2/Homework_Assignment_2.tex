@@ -1,0 +1,991 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Homework Assigment \#2},
+  pdfauthor={Jeffrey Lewis \& Carson Stacy},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Homework Assigment \#2}
+\author{Jeffrey Lewis \& Carson Stacy}
+\date{2026-02-13}
+
+\begin{document}
+\maketitle
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: package 'readr' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: package 'ggplot2' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+Warning: package 'tidyr' was built under R version 4.4.1
+\end{verbatim}
+
+\begin{verbatim}
+Warning: package 'lubridate' was built under R version 4.4.1
+\end{verbatim}
+
+\begin{verbatim}
+-- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+v dplyr     1.1.4     v purrr     1.0.2
+v forcats   1.0.0     v stringr   1.5.1
+v ggplot2   4.0.1     v tibble    3.2.1
+v lubridate 1.9.4     v tidyr     1.3.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+\FunctionTok{library}\NormalTok{(clusterProfiler)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: package 'clusterProfiler' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+
+clusterProfiler v4.14.6 Learn more at https://yulab-smu.top/contribution-knowledge-mining/
+
+Please cite:
+
+S Xu, E Hu, Y Cai, Z Xie, X Luo, L Zhan, W Tang, Q Wang, B Liu, R Wang,
+W Xie, T Wu, L Xie, G Yu. Using clusterProfiler to characterize
+multiomics data. Nature Protocols. 2024, 19(11):3292-3320
+
+Attaching package: 'clusterProfiler'
+
+The following object is masked from 'package:purrr':
+
+    simplify
+
+The following object is masked from 'package:stats':
+
+    filter
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(org.Sc.sgd.db)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Loading required package: AnnotationDbi
+\end{verbatim}
+
+\begin{verbatim}
+Warning: package 'AnnotationDbi' was built under R version 4.4.1
+\end{verbatim}
+
+\begin{verbatim}
+Loading required package: stats4
+Loading required package: BiocGenerics
+\end{verbatim}
+
+\begin{verbatim}
+Warning: package 'BiocGenerics' was built under R version 4.4.1
+\end{verbatim}
+
+\begin{verbatim}
+
+Attaching package: 'BiocGenerics'
+
+The following objects are masked from 'package:lubridate':
+
+    intersect, setdiff, union
+
+The following objects are masked from 'package:dplyr':
+
+    combine, intersect, setdiff, union
+
+The following objects are masked from 'package:stats':
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from 'package:base':
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+    get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
+    match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+    Position, rank, rbind, Reduce, rownames, sapply, saveRDS, setdiff,
+    table, tapply, union, unique, unsplit, which.max, which.min
+
+Loading required package: Biobase
+\end{verbatim}
+
+\begin{verbatim}
+Warning: package 'Biobase' was built under R version 4.4.1
+\end{verbatim}
+
+\begin{verbatim}
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: IRanges
+\end{verbatim}
+
+\begin{verbatim}
+Warning: package 'IRanges' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+Loading required package: S4Vectors
+\end{verbatim}
+
+\begin{verbatim}
+Warning: package 'S4Vectors' was built under R version 4.4.1
+\end{verbatim}
+
+\begin{verbatim}
+
+Attaching package: 'S4Vectors'
+
+The following object is masked from 'package:clusterProfiler':
+
+    rename
+
+The following objects are masked from 'package:lubridate':
+
+    second, second<-
+
+The following objects are masked from 'package:dplyr':
+
+    first, rename
+
+The following object is masked from 'package:tidyr':
+
+    expand
+
+The following object is masked from 'package:utils':
+
+    findMatches
+
+The following objects are masked from 'package:base':
+
+    expand.grid, I, unname
+
+
+Attaching package: 'IRanges'
+
+The following object is masked from 'package:clusterProfiler':
+
+    slice
+
+The following object is masked from 'package:lubridate':
+
+    %within%
+
+The following objects are masked from 'package:dplyr':
+
+    collapse, desc, slice
+
+The following object is masked from 'package:purrr':
+
+    reduce
+
+
+Attaching package: 'AnnotationDbi'
+
+The following object is masked from 'package:clusterProfiler':
+
+    select
+
+The following object is masked from 'package:dplyr':
+
+    select
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggVennDiagram)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: package 'ggVennDiagram' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+
+Attaching package: 'ggVennDiagram'
+
+The following object is masked from 'package:tidyr':
+
+    unite
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{BiocPkgs }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"fgsea"}\NormalTok{,}\StringTok{"clusterProfiler"}\NormalTok{, }\StringTok{"AnnotationDbi"}\NormalTok{, }\StringTok{"org.Sc.sgd.db"}\NormalTok{)}
+\NormalTok{BiocManager}\SpecialCharTok{::}\FunctionTok{install}\NormalTok{(}\FunctionTok{setdiff}\NormalTok{(BiocPkgs, }\FunctionTok{rownames}\NormalTok{(}\FunctionTok{installed.packages}\NormalTok{())))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Bioconductor version 3.20 (BiocManager 1.30.27), R 4.4.0 (2024-04-24)
+Old packages: 'BART', 'base64enc', 'betareg', 'BH', 'bit', 'blob', 'bmp',
+  'boot', 'broom', 'bslib', 'car', 'carData', 'class', 'cli', 'clock',
+  'cluster', 'colorspace', 'cowplot', 'cpp11', 'credentials', 'crosstalk',
+  'curl', 'data.table', 'dbplyr', 'Deriv', 'digest', 'doBy', 'dplyr', 'dtplyr',
+  'e1071', 'evaluate', 'fansi', 'fitdistrplus', 'flexdashboard', 'flexmix',
+  'fontawesome', 'forcats', 'foreign', 'fs', 'future', 'future.apply',
+  'gargle', 'gbm', 'generics', 'gert', 'GGally', 'ggplot2', 'ggpubr', 'ggsci',
+  'ggstats', 'gh', 'glmnet', 'globals', 'glue', 'googledrive', 'googlesheets4',
+  'gplots', 'hardhat', 'haven', 'hms', 'htmltools', 'httr', 'httr2', 'igraph',
+  'imager', 'irlba', 'isoband', 'jsonlite', 'KernSmooth', 'later', 'lattice',
+  'lava', 'leidenbase', 'lifecycle', 'listenv', 'lme4', 'lubridate',
+  'magrittr', 'MASS', 'Matrix', 'MatrixModels', 'mgcv', 'mime', 'modeltools',
+  'nlme', 'nloptr', 'nnet', 'openssl', 'parallelly', 'patchwork', 'pbkrtest',
+  'pillar', 'plotly', 'pROC', 'processx', 'prodlim', 'progressr', 'promises',
+  'proxy', 'ps', 'purrr', 'quantreg', 'R6', 'ragg', 'rappdirs', 'rbibutils',
+  'Rcpp', 'RcppAnnoy', 'RcppArmadillo', 'Rdpack', 'recipes', 'reformulas',
+  'reshape2', 'reticulate', 'rlang', 'rmarkdown', 'ROCR', 'RSQLite', 'rstatix',
+  'rstudioapi', 'rvest', 'sass', 'sctransform', 'selectr', 'Seurat',
+  'SeuratObject', 'sf', 'shiny', 'sp', 'spam', 'sparsevctrs', 'spatial',
+  'spatstat.explore', 'spatstat.geom', 'spatstat.random', 'spatstat.univar',
+  'spatstat.utils', 'stringi', 'stringr', 'survival', 'systemfonts',
+  'textshaping', 'tibble', 'tidyr', 'timechange', 'timeDate', 'tinytex',
+  'tree', 'tzdb', 'usethis', 'utf8', 'uuid', 'uwot', 'vctrs', 'viridisLite',
+  'vroom', 'wk', 'xgboost', 'xml2', 'yaml', 'yulab.utils', 'zip', 'zoo'
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{msn24\_EtOH }\OtherTok{\textless{}{-}}\NormalTok{ readr}\SpecialCharTok{::}\FunctionTok{read\_tsv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/clstacy/GenomicAnalysis/main/Data/Msn24\_EtOH/DE\_genes\_Msn24\_EtOH.txt"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Assignment \#1: Due February
+17th}\label{assignment-1-due-february-17th}
+
+\textbf{Please upload your completed assignments into Blackboard as a
+.qmd file so that we can reproduce your code when relevant. Save your
+file as StudentID\_Assignment2.}
+
+\textbf{General Rules:}
+
+1) We strongly encourage people to work in groups and take advantage of
+any resources at your disposal (including AI--see the syllabus for our
+complete policy). However, we expect each student to demonstrate their
+own understanding by generating their own answers and not simply copying
+(which is plagiarism).
+
+2) Science is collaborative, and we encourage students to work through
+these problems in groups. Please do cite your collaborators if any.
+
+3) If you used any outside references, please cite them. Additionally if
+you used generative AI for the assignment, please provide a link to the
+prompt and answers. This will help us troubleshoot or provide feedback
+if the AI makes any mistakes.
+
+4) Sonali and I are happy to field questions about the assignments
+either in class, via email, or by appointment.
+
+\textbf{Optional DataCamp Assignments:}
+
+The class has a free 6-month subscription to DataCamp, which has a whole
+bunch of interactive courses that span beginner level through advanced.
+You are free to take any courses of interest for free during the
+semester, and I would like to point out that there is a sequence of
+courses for
+\href{https://app.datacamp.com/learn/skill-tracks/analyzing-genomic-data-in-r}{analyzing
+genomic data} that students may like to use throughout the semester to
+complement the activities in class.
+
+For this assignment period, I would highly recommend that students
+complete
+\href{https://app.datacamp.com/learn/courses/introduction-to-bioconductor-in-r}{``Introduction
+to Bioconductor in R,''} Chapters \#1 ``What is Bioconductor?'' and \#4
+``Introducing ShortRead.''
+
+\textbf{The Main Assignment:}
+
+Using the ``02\_Gene\_Ontology.qmd'' exercise as a guide, answer the
+questions below.
+
+The 4\textsuperscript{th} and 5\textsuperscript{th} code chunks from
+that qmd fileshould download a file with all of the gene expression data
+for the comparison of wild-type yeast (YPS606) and the YPS606
+\emph{msn2/4}∆∆ mutant, and then change the headers to remove the ∆
+characters that certain packages don't recognize. The resulting file is
+named ``DE\_genes\_Msn24\_EtOH.txt'' and in case you cannot generate
+that file, it has also been uploaded onto OneDrive under Data Files
+-\textgreater{} Msn24\_EtOH -\textgreater{} Differential\_Expression.
+You can import the file directly into R Studio using the ``Import
+Dataset'' in the upper right Environment section. Select ``From Text
+(readr)\ldots{}'' from the dropdown menu, and click ``Browse\ldots{}''
+to navigate your computer to select the file. Change the delimiter to
+``Tab,'' and make sure ``First Row as Names'' is checked.~
+
+If clusterProfiler is working, you'll be able to perform all of the GO
+enrichment analysis in R. If not, you can still open
+``DE\_genes\_Msn24\_EtOH.txt'' in Excel as a tab delimited text file and
+then copy and paste gene lists into an online tool. For this exercise, I
+would recommend the
+\href{https://go.princeton.edu/cgi-bin/GOTermFinder}{Princeton GO Term
+Finder}.
+
+Notes about the dataset:
+
+There are 5 different strain, environment, or (strain x environment)
+comparisons in the file:
+
+\textbf{yps606\_wt\_et\_oh\_response}: log\textsubscript{2}(YPS606
+ethanol stress / YPS606 unstressed), so positive values denote genes
+induced by ethanol stress and negative values denote genes repressed by
+ethanol stress.
+
+\textbf{yps606\_msn2\_4dd\_et\_oh\_response}:
+log\textsubscript{2}(YPS606 \emph{msn2/4}∆∆ ethanol stress / YPS606
+\emph{msn2/4}∆∆ unstressed), and again positive values denote genes
+induced by ethanol stress and negative values denote genes repressed by
+ethanol stress.
+
+\textbf{wt\_v\_msn2\_4dd\_et\_oh\_response}: log\textsubscript{2}(
+(YPS606 \emph{msn2/4}∆∆ ethanol stress / YPS606 \emph{msn2/4}∆∆
+unstressed) / (YPS606 ethanol stress / YPS606 unstressed) ), so negative
+values denote genes with lower expression for the \emph{msn2/4}∆∆
+mutant's ethanol response, and positive values denote genes with higher
+expression for \emph{msn2/4}∆∆ mutant's ethanol response. E.g.,
+\emph{PGM2} has a logFC during the EtOH response of 7.60 in wild-type
+YPS606, but only 0.78 for the \emph{msn2/4}∆∆ mutant's EtOH response.
+The WT vs.~mutant EtOH response comparison yields a logFC of -6.96,
+consistent with a diminished EtOH response in the mutant.
+
+\textbf{wt\_v\_msn2\_4dd\_unstressed}: log\textsubscript{2}(YPS606
+\emph{msn2/4}∆∆ unstressed / YPS606 unstressed), so positive values
+denote genes with higher expression in the \emph{msn2/4}∆∆ mutant under
+unstressed conditions, and negative values denote genes with lower
+expression in the \emph{msn2/4}∆∆ mutant (note that the genes with the
+lowest expression in the \emph{msn2/4∆∆} mutant are \emph{MSN2} and
+\emph{MSN4,} which makes sense since those two genes were deleted to
+create the mutant).
+
+\textbf{wt\_v\_msn2\_4dd\_et\_oh\_absolute}: log\textsubscript{2}(YPS606
+\emph{msn2/4}∆∆ ethanol strss / YPS606 ethanol stress), so positive
+values denote genes with higher expression in the \emph{msn2/4}∆∆ mutant
+under ethanol stress, and negative values denote genes with lower
+expression in the \emph{msn2/4}∆∆ mutant ethanol stress (note that this
+is not the same as looking at the EtOH response comparison between
+strains. While many of the genes with lower expression in the
+\emph{msn2/4}∆∆ mutant are induced by EtOH stress in the wild-type
+strain, this is not universally true (e.g., \emph{MRH1} has a logFC of
+0.50 for the wild type ethanol response (not induced), but has -3.09
+log\textsubscript{2}-fold lower expression in the \emph{msn2/4}∆∆ mutant
+for this comparison).
+
+Answer the following questions. Where relevant, either type your answers
+below each question or include your code. Blank code chunks are included
+that you can paste from 02\_Gene\_Ontology.qmd or type commands into:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  For the YPS606 wild type ethanol response
+  (yps606\_wt\_et\_oh\_response), generate two gene lists: one where you
+  select genes with an FDR \textless{} 0.01 and that are upregulated
+  with logFC of at least 1, and a second set where you use an FDR
+  \textless{} 0.05
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wtEtOHresponse\_up\_05 }\OtherTok{\textless{}{-}}\NormalTok{ msn24\_EtOH }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(fdr\_YPS606\_WT\_EtOH\_response }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{, }
+\NormalTok{         logFC\_YPS606\_WT\_etoh\_response }\SpecialCharTok{\textgreater{}=} \DecValTok{1}\NormalTok{)}
+
+\NormalTok{wtEtOHresponse\_up\_05\_go }\OtherTok{\textless{}{-}}\NormalTok{ wtEtOHresponse\_up\_05 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pull}\NormalTok{(gene\_id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{enrichGO}\NormalTok{(}
+    \AttributeTok{OrgDb =} \StringTok{"org.Sc.sgd.db"}\NormalTok{,}
+    \AttributeTok{universe =}\NormalTok{ msn24\_EtOH}\SpecialCharTok{$}\NormalTok{gene\_id,}
+    \AttributeTok{keyType =} \StringTok{"ORF"}\NormalTok{,}
+    \AttributeTok{ont=} \StringTok{"BP"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{richFactor =}\NormalTok{ Count }\SpecialCharTok{/} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{sub}\NormalTok{(}\StringTok{"/}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d+"}\NormalTok{, }\StringTok{""}\NormalTok{, BgRatio))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(pvalue)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wtEtOHresponse\_up\_01 }\OtherTok{\textless{}{-}}\NormalTok{ msn24\_EtOH }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(fdr\_YPS606\_WT\_EtOH\_response }\SpecialCharTok{\textless{}} \FloatTok{0.01}\NormalTok{, }
+\NormalTok{         logFC\_YPS606\_WT\_etoh\_response }\SpecialCharTok{\textgreater{}=} \DecValTok{1}\NormalTok{)}
+  
+\NormalTok{wtEtOHresponse\_up\_01\_go }\OtherTok{\textless{}{-}}\NormalTok{ wtEtOHresponse\_up\_01 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pull}\NormalTok{(gene\_id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{enrichGO}\NormalTok{(}
+    \AttributeTok{OrgDb =} \StringTok{"org.Sc.sgd.db"}\NormalTok{,}
+    \AttributeTok{universe =}\NormalTok{ msn24\_EtOH}\SpecialCharTok{$}\NormalTok{gene\_id,}
+    \AttributeTok{keyType =} \StringTok{"ORF"}\NormalTok{,}
+    \AttributeTok{ont=} \StringTok{"BP"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{richFactor =}\NormalTok{ Count }\SpecialCharTok{/} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{sub}\NormalTok{(}\StringTok{"/}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d+"}\NormalTok{, }\StringTok{""}\NormalTok{, BgRatio))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(pvalue)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(wtEtOHresponse\_up\_01\_go)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+                   ID                               Description GeneRatio
+GO:0005975 GO:0005975            carbohydrate metabolic process  125/1096
+GO:0005996 GO:0005996          monosaccharide metabolic process   48/1096
+GO:0019362 GO:0019362     pyridine nucleotide metabolic process   44/1096
+GO:0046496 GO:0046496 nicotinamide nucleotide metabolic process   43/1096
+GO:0019318 GO:0019318                  hexose metabolic process   42/1096
+GO:0006508 GO:0006508                               proteolysis  125/1096
+            BgRatio RichFactor FoldEnrichment    zScore       pvalue
+GO:0005975 247/5544  0.5060729       2.559916 12.448873 9.548454e-29
+GO:0005996  86/5544  0.5581395       2.823290  8.458308 9.932879e-14
+GO:0019362  79/5544  0.5569620       2.817333  8.075109 1.203594e-12
+GO:0046496  78/5544  0.5512821       2.788602  7.896261 3.498011e-12
+GO:0019318  76/5544  0.5526316       2.795428  7.822687 5.625077e-12
+GO:0006508 366/5544  0.3415301       1.727594  7.148974 1.486900e-11
+               p.adjust       qvalue
+GO:0005975 1.377842e-25 1.154860e-25
+GO:0005996 7.166572e-11 6.006778e-11
+GO:0019362 5.789287e-10 4.852385e-10
+GO:0046496 1.261907e-09 1.057688e-09
+GO:0019318 1.623397e-09 1.360676e-09
+GO:0006508 3.575995e-09 2.997278e-09
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  geneID
+GO:0005975                     YMR105C/YML100W/YKL035W/YLR258W/YMR196W/YFR053C/YDR001C/YBR126C/YDR516C/YHR104W/YDR074W/YEL011W/YFR015C/YPR160W/YBR149W/YMR261C/YGR248W/YFR017C/YPR026W/YLL026W/YPR184W/YDL022W/YKR058W/YBR053C/YER062C/YBR001C/YGR194C/YML070W/YJR096W/YCL040W/YOR347C/YNR034W/YAL017W/YER054C/YBR056W/YOR120W/YMR278W/YHR043C/YIL107C/YDR477W/YOR178C/YJL155C/YOR245C/YNR001C/YJL052W/YIL155C/YBR145W/YCR073W-A/YLR345W/YIR007W/YLR174W/YGL156W/YGL227W/YMR135C/YGR287C/YNR071C/YJL089W/YBL058W/YER177W/YLR081W/YDL021W/YGL062W/YGL059W/YDR099W/YGR256W/YJL034W/YOL157C/YPR001W/YGR043C/YFR003C/YGR288W/YNL117W/YEL012W/YDL085W/YBR229C/YCR012W/YLR134W/YMR280C/YIL017C/YDL066W/YER065C/YGL084C/YHR174W/YPL248C/YLR446W/YML028W/YCL018W/YHR044C/YMR311C/YEL070W/YJR159W/YIL053W/YDR261C/YBR297W/YOL059W/YIL097W/YFR042W/YOL086C/YGR066C/YDL247W/YIL099W/YGR254W/YIL045W/YDR050C/YLR273C/YIL172C/YJL221C/YDR368W/YJR160C/YBR018C/YBR020W/YNL249C/YPL031C/YPL219W/YCL039W/YDR255C/YER003C/YCR005C/YJR009C/YBR299W/YDR009W/YHR101C/YKL152C/YNL009W/YGR032W
+GO:0005996                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               YMR105C/YFR053C/YDR516C/YHR104W/YBR053C/YGR194C/YJR096W/YCL040W/YOR120W/YMR278W/YHR043C/YIL107C/YDR477W/YJL155C/YJL052W/YBR145W/YLR345W/YGL156W/YGL227W/YMR135C/YNR071C/YJL089W/YLR081W/YGL062W/YGL059W/YEL012W/YDL085W/YCR012W/YLR134W/YIL017C/YPL248C/YLR446W/YML028W/YHR044C/YJR159W/YIL097W/YOL086C/YGR066C/YDR050C/YDR368W/YBR018C/YBR020W/YNL249C/YCL039W/YDR255C/YJR009C/YDR009W/YKL152C
+GO:0019362                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             YFR053C/YDR516C/YKL151C/YGL037C/YGR248W/YMR315W/YDL022W/YML120C/YNL200C/YOR374W/YCL040W/YOR347C/YNR034W/YBR117C/YJR025C/YJL052W/YIL155C/YBR145W/YCR073W-A/YLR345W/YLR174W/YDL021W/YGR256W/YGR043C/YDL085W/YCR012W/YDR481C/YDL066W/YLR231C/YHR174W/YEL041W/YLR446W/YOL059W/YMR303C/YOL086C/YJR078W/YGR254W/YDR050C/YHR202W/YDR400W/YMR083W/YJR009C/YKL152C/YNL009W
+GO:0046496                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     YFR053C/YDR516C/YKL151C/YGR248W/YMR315W/YDL022W/YML120C/YNL200C/YOR374W/YCL040W/YOR347C/YNR034W/YBR117C/YJR025C/YJL052W/YIL155C/YBR145W/YCR073W-A/YLR345W/YLR174W/YDL021W/YGR256W/YGR043C/YDL085W/YCR012W/YDR481C/YDL066W/YLR231C/YHR174W/YEL041W/YLR446W/YOL059W/YMR303C/YOL086C/YJR078W/YGR254W/YDR050C/YHR202W/YDR400W/YMR083W/YJR009C/YKL152C/YNL009W
+GO:0019318                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               YMR105C/YFR053C/YDR516C/YHR104W/YCL040W/YMR278W/YHR043C/YIL107C/YDR477W/YJL155C/YJL052W/YBR145W/YLR345W/YGL156W/YGL227W/YMR135C/YNR071C/YJL089W/YLR081W/YGL062W/YGL059W/YEL012W/YDL085W/YCR012W/YLR134W/YIL017C/YPL248C/YLR446W/YML028W/YHR044C/YJR159W/YIL097W/YOL086C/YGR066C/YDR050C/YBR018C/YBR020W/YCL039W/YDR255C/YJR009C/YDR009W/YKL152C
+GO:0006508 YOL153C/YLL039C/YBL075C/YLR178C/YNL007C/YBR169C/YNL015W/YBR139W/YBL005W-B/YAL005C/YNL284C-B/YMR297W/YMR045C/YPL154C/YKL103C/YNL045W/YIR039C/YHR028C/YFL062W/YKL100C/YLR299W/YJL048C/YLR035C-A/YGR295C/YHL048W/YLL029W/YMR304W/YLL024C/YEL060C/YNL239W/YDR358W/YOR192C-B/YBR280C/YLR352W/YDL126C/YGL227W/YMR119W/YMR135C/YCL052C/YLR120C/YOR219C/YBL058W/YOL082W/YBL100W-B/YER098W/YDL248W/YML132W/YJL034W/YJR161C/YHR113W/YNL054W-B/YOR003W/YKL171W/YOR343W-B/YCR068W/YGR136W/YEL012W/YDR059C/YGR161W-B/YKL124W/YMR184W/YNL155W/YOL013C/YOR124C/YLR207W/YFL002W-A/YCL043C/YFR021W/YNL223W/YER162C/YIL017C/YDR330W/YCL019W/YBR201W/YKL157W/YMR022W/YDR273W/YGL240W/YOR256C/YNL159C/YDR411C/YLR410W-B/YML068W/YKL133C/YGR225W/YBR041W/YIL097W/YJL144W/YER138C/YDR394W/YBR082C/YGR066C/YIL108W/YJL073W/YKL219W/YML029W/YOL057W/YOR157C/YDR069C/YER143W/YNR075W/YER094C/YGL141W/YCL039W/YGR048W/YDL007W/YCL044C/YDR255C/YER012W/YDR034C-D/YJL001W/YPL191C/YER021W/YFR050C/YKL213C/YNL336W/YKL034W/YMR214W/YIL075C/YPL236C/YBR173C/YCL057W/YDR057W/YLR104W/YIL015W
+           Count richFactor
+GO:0005975   125  0.5060729
+GO:0005996    48  0.5581395
+GO:0019362    44  0.5569620
+GO:0046496    43  0.5512821
+GO:0019318    42  0.5526316
+GO:0006508   125  0.3415301
+\end{verbatim}
+
+The most significantly enriched GO term at this significance cutoff is
+``carbohydrate metabolic process''.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  What percent of the genes would we expect to have that GO term in the
+  DE list under the null hypothesis (and what is the null hypothesis)?
+  What percent of the DE genes actually had that GO term?
+\end{enumerate}
+
+For the genes upregulated at FDR \textless{} 0.01 logFC ≤ 1, the
+background ratio (or the null ratio, what we expect to see if there's no
+enrichment of the pathway) of `carbohydrate metabolic process' is
+272/5546 or 0.0490444. The gene ratio (the observed ratio) of
+`carbohydrate metabolic process' is 138/1097 or 0.1257976. This
+represents an enrichment of \textasciitilde2.56 (or 256\%), indicating
+that the pathway is highly enriched.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  For the upregulated comparison in question 1, change the logFC cutoff
+  to at least 0 (so any amount of upregulation, no matter how small).
+  What is the mean and median log fold change for genes with that logFC
+  cutoff and a pval \textless{} 0.01 but fdr \textgreater{} 0.01? Are
+  there any GO terms enriched for genes? What was your expectation
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{msn24\_EtOH }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(fdr\_YPS606\_WT\_EtOH\_response }\SpecialCharTok{\textgreater{}} \FloatTok{0.01}\NormalTok{,   }\CommentTok{\# FDR \textgreater{} 0.01}
+\NormalTok{         logFC\_YPS606\_WT\_etoh\_response }\SpecialCharTok{\textgreater{}=} \DecValTok{0}\NormalTok{,   }\CommentTok{\# logFC is at least 0}
+\NormalTok{         pvalue\_YPS606\_WT\_etoh\_response }\SpecialCharTok{\textless{}} \FloatTok{0.01} \CommentTok{\# pval \textless{} 0.01}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  
+  \CommentTok{\# Get mean and median logFC }
+  \FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(logFC\_YPS606\_WT\_etoh\_response, }
+                   \FunctionTok{list}\NormalTok{(}\AttributeTok{mean =}\NormalTok{ mean, }
+                        \AttributeTok{median =}\NormalTok{ median), }
+                   \AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 1 x 2
+  logFC_YPS606_WT_etoh_response_mean logFC_YPS606_WT_etoh_response_median
+                               <dbl>                                <dbl>
+1                              0.583                                0.388
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Create your own novel comparison that was not in the original Gene
+  Ontology exercise. For this novel comparisons, explain biologically
+  why you are interested in this particular comparison and the rationale
+  for the cutoffs chosen for generating a gene list. Paste or enter the
+  code for the novel list in the box below.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mutantEtOhresponse }\OtherTok{\textless{}{-}}\NormalTok{ msn24\_EtOH }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(fdr\_YPS606\_msn24dd\_EtOH\_response }\SpecialCharTok{\textless{}} \FloatTok{0.01}\NormalTok{, }
+\NormalTok{         logFC\_YPS606\_msn24dd\_EtOH\_response }\SpecialCharTok{\textless{}=} \SpecialCharTok{{-}}\DecValTok{1}
+\NormalTok{  )}
+
+\NormalTok{mutantEtOhresponse\_go }\OtherTok{\textless{}{-}}\NormalTok{ mutantEtOhresponse }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pull}\NormalTok{(gene\_id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{enrichGO}\NormalTok{(}
+    \AttributeTok{OrgDb =} \StringTok{"org.Sc.sgd.db"}\NormalTok{,}
+    \AttributeTok{universe =}\NormalTok{ msn24\_EtOH}\SpecialCharTok{$}\NormalTok{gene\_id,}
+    \AttributeTok{keyType =} \StringTok{"ORF"}\NormalTok{,}
+    \AttributeTok{ont =} \StringTok{"BP"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{richFactor =}\NormalTok{ Count }\SpecialCharTok{/} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{sub}\NormalTok{(}\StringTok{"/}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d+"}\NormalTok{, }\StringTok{""}\NormalTok{, BgRatio))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(pvalue)}
+
+\FunctionTok{head}\NormalTok{(mutantEtOhresponse\_go)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+                   ID                          Description GeneRatio  BgRatio
+GO:0042254 GO:0042254                  ribosome biogenesis   299/972 400/5544
+GO:0022613 GO:0022613 ribonucleoprotein complex biogenesis   315/972 482/5544
+GO:0006364 GO:0006364                      rRNA processing   227/972 290/5544
+GO:0016072 GO:0016072               rRNA metabolic process   242/972 345/5544
+GO:0042274 GO:0042274   ribosomal small subunit biogenesis   118/972 140/5544
+GO:0042273 GO:0042273   ribosomal large subunit biogenesis   113/972 131/5544
+           RichFactor FoldEnrichment   zScore        pvalue      p.adjust
+GO:0042254  0.7475000       4.263519 31.24051 7.841589e-155 1.169965e-151
+GO:0022613  0.6535270       3.727524 28.89239 3.763875e-136 2.807850e-133
+GO:0006364  0.7827586       4.464623 27.94232 2.845775e-122 1.415299e-119
+GO:0016072  0.7014493       4.000859 26.53675 2.570918e-112 9.589523e-110
+GO:0042274  0.8428571       4.807407 21.03721  7.668517e-69  2.288286e-66
+GO:0042273  0.8625954       4.919989 20.93408  3.532399e-68  8.783898e-66
+                  qvalue
+GO:0042254 1.088743e-151
+GO:0022613 2.612921e-133
+GO:0006364 1.317045e-119
+GO:0016072 8.923791e-110
+GO:0042274  2.129426e-66
+GO:0042273  8.174094e-66
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        geneID
+GO:0042254                                                                                                                                 YJL050W/YDR101C/YMR049C/YGR158C/YJL069C/YPR010C/YNL132W/YPR144C/YEL055C/YHR197W/YBR142W/YGR162W/YIL069C/YNL096C/YPR110C/YLL034C/YLR186W/YGR159C/YHR170W/YLR106C/YOR119C/YHR089C/YDR496C/YGL078C/YKL014C/YHL033C/YDL060W/YPL211W/YJL010C/YOR206W/YGR214W/YOR341W/YBR189W/YPL093W/YOL080C/YGL171W/YPR041W/YNL061W/YMR131C/YJL177W/YLR409C/YNL002C/YDR161W/YOR340C/YOR234C/YDR449C/YKL009W/YLR196W/YGL120C/YOR310C/YBR247C/YCR057C/YHL001W/YLR129W/YLR063W/YDL166C/YGR085C/YIL091C/YJL109C/YHR088W/YNL248C/YOR272W/YIR012W/YMR229C/YLR448W/YLR002C/YOL010W/YPL012W/YGL076C/YLL008W/YOR243C/YIL110W/YIL133C/YHR052W/YOR001W/YLR197W/YLR222C/YPR169W/YKR081C/YLR435W/YKL032C/YGR128C/YLR336C/YCR072C/YML063W/YOR056C/YHR169W/YOL041C/YLR175W/YER131W/YDR025W/YEL054C/YDR060W/YHR085W/YDR500C/YLR048W/YOR224C/YNL113W/YHR066W/YOR048C/YPL226W/YOL121C/YDR324C/YLR344W/YOL077C/YDR418W/YPR112C/YDR083W/YDL083C/YNL207W/YDR447C/YPL090C/YML073C/YJL033W/YOR096W/YKR024C/YBL004W/YLL045C/YJR063W/YKR063C/YGL111W/YBR181C/YBR267W/YNL075W/YOR294W/YER102W/YDL031W/YNL182C/YGR245C/YDL148C/YDL208W/YML026C/YNL124W/YGR251W/YOR293W/YPL266W/YOR063W/YFR031C-A/YLR276C/YDR091C/YJL122W/YDL014W/YDL136W/YAL035W/YJL148W/YGR034W/YOR098C/YER127W/YKL021C/YOL144W/YHR065C/YEL026W/YLR397C/YMR093W/YHR148W/YGR145W/YGL123W/YER082C/YJL191W/YMR290C/YKL099C/YER056C-A/YOL022C/YCR047C/YKR057W/YHR196W/YDR087C/YDR398W/YNL022C/YPR132W/YER074W/YPL217C/YPR102C/YLR167W/YHR062C/YJR002W/YGL099W/YFL002C/YPR137W/YIL052C/YNR053C/YDL213C/YNL302C/YDR450W/YNR038W/YPR187W/YBR141C/YBL072C/YOL021C/YMR230W/YJR041C/YDL153C/YNR054C/YCL054W/YBR048W/YMR128W/YDR361C/YJL136C/YDR339C/YBR154C/YAL059W/YML093W/YNL069C/YAL025C/YOR287C/YDR312W/YNL163C/YGR280C/YPL143W/YOL127W/YMR239C/YML024W/YLR264W/YKL172W/YIL019W/YPL043W/YER126C/YPL082C/YHR143W-A/YER002W/YKR060W/YHR081W/YGL030W/YER006W/YNR046W/YLR009W/YBL018C/YGR095C/YGL135W/YDR365C/YBR257W/YGR030C/YNL308C/YLR185W/YNL227C/YHR064C/YOR078W/YDL229W/YNL209W/YNL221C/YIR026C/YDL036C/YGL097W/YOL142W/YHR021C/YDR299W/YOL040C/YGR285C/YDR021W/YLR051C/YLR068W/YNL110C/YNL112W/YCR087C-A/YPR016C/YPL239W/YLL011W/YLR340W/YMR014W/YPL126W/YOR004W/YCL059C/YOR145C/YLR221C/YKL082C/YPR143W/YDR478W/YKL006W/YIL096C/YOR369C/YHR069C/YCR031C/YDR432W/YGR271C-A/YDR412W/YHR072W-A/YLL035W/YML010W/YNR024W/YKL078W/YOR167C/YPL146C/YFR001W/YFL023W/YDR156W/YAL033W/YMR269W/YOR006C/YDL063C/YCR016W/YPL193W/YGR103W/YLR074C/YKL143W/YGR081C/YHR040W/YJR055W/YER036C/YGL029W
+GO:0022613 YJL050W/YDR101C/YMR049C/YGR158C/YJL069C/YPR010C/YNL132W/YPR144C/YEL055C/YHR197W/YBR142W/YGR162W/YIL069C/YNL096C/YPR110C/YLL034C/YLR186W/YGR159C/YHR170W/YLR106C/YOR119C/YHR089C/YDR496C/YGL078C/YKL014C/YHL033C/YDL060W/YPL211W/YJL010C/YOR206W/YGR214W/YOR341W/YBR189W/YPL093W/YOL080C/YGL171W/YPR041W/YNL061W/YMR131C/YJL177W/YLR409C/YNL002C/YDR161W/YOR340C/YOR234C/YDR449C/YKL009W/YLR196W/YBR079C/YGL120C/YOR310C/YBR247C/YCR057C/YHL001W/YER025W/YLR129W/YLR063W/YDL166C/YGR085C/YIL091C/YJL109C/YHR088W/YNL248C/YOR272W/YIR012W/YMR229C/YLR448W/YLR002C/YOL010W/YPL012W/YGL076C/YLL008W/YOR243C/YIL110W/YIL133C/YHR052W/YOR001W/YLR197W/YLR222C/YPR169W/YKR081C/YLR435W/YKL032C/YGR128C/YLR336C/YCR072C/YML063W/YOR056C/YHR169W/YOL041C/YLR175W/YER131W/YDR025W/YPR163C/YEL054C/YDR060W/YHR085W/YDR500C/YLR048W/YOR224C/YNL113W/YHR066W/YOR048C/YPL226W/YLR419W/YOL121C/YDR324C/YLR344W/YOL077C/YDR418W/YPR112C/YDR083W/YDL083C/YNL207W/YDR447C/YPL090C/YML073C/YJL033W/YOR096W/YKR024C/YBL004W/YLL045C/YJR063W/YKR063C/YGL111W/YBR181C/YBR267W/YNL075W/YOR294W/YER102W/YDL031W/YNL182C/YGR245C/YDL148C/YDL208W/YML026C/YNL124W/YGR251W/YOR293W/YPL266W/YOR063W/YFR031C-A/YLR276C/YDR091C/YJL122W/YDL014W/YIL104C/YDL136W/YAL035W/YJL148W/YGR034W/YOR098C/YER127W/YKL021C/YOL144W/YHR065C/YEL026W/YPL237W/YLR397C/YMR093W/YHR148W/YGR145W/YGL123W/YER082C/YJL191W/YMR290C/YKL099C/YER056C-A/YOL022C/YCR047C/YKR057W/YHR196W/YDR087C/YDR398W/YOL139C/YNL022C/YPR132W/YER074W/YPL217C/YDR429C/YPR102C/YLR167W/YHR062C/YJR002W/YGL099W/YFL002C/YPR137W/YIL052C/YLR325C/YNR053C/YDL213C/YNL302C/YDR450W/YNR038W/YPR187W/YBR141C/YBL072C/YOL021C/YMR230W/YJR041C/YDL153C/YNR054C/YCL054W/YBR048W/YMR128W/YDR361C/YJL136C/YDR339C/YBR154C/YAL059W/YML093W/YNL069C/YAL025C/YOR287C/YDR312W/YNL163C/YGR280C/YPL143W/YOL127W/YMR239C/YML024W/YLR264W/YKL172W/YIL019W/YPL043W/YER126C/YPL082C/YHR143W-A/YER002W/YKR060W/YHR081W/YGL030W/YER006W/YNR046W/YLR009W/YBL018C/YGR095C/YGL135W/YDR365C/YBR257W/YGR030C/YNL308C/YLR185W/YNL227C/YHR064C/YOR078W/YDL229W/YNL209W/YNL221C/YIR026C/YDL036C/YGL097W/YOL142W/YMR260C/YHR021C/YDR299W/YOL040C/YGR285C/YDR021W/YLR051C/YLR068W/YNL110C/YNL112W/YCR087C-A/YPR016C/YPL239W/YLL011W/YLR340W/YMR014W/YPL126W/YLR323C/YOR004W/YCL059C/YOR145C/YLR221C/YKL082C/YPR143W/YDR478W/YKL006W/YIL096C/YOR369C/YKR059W/YHR069C/YCR031C/YDR432W/YGR271C-A/YDR412W/YHR072W-A/YLL035W/YML010W/YNR024W/YKL078W/YOR167C/YPL146C/YNL244C/YFR001W/YFL023W/YDR156W/YAL033W/YMR269W/YOR006C/YOR204W/YDL063C/YCR016W/YPL193W/YDR243C/YGR103W/YLR074C/YKL143W/YJL138C/YGR081C/YHR040W/YJR055W/YER036C/YGL029W
+GO:0006364                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       YJL050W/YMR049C/YGR158C/YJL069C/YNL132W/YPR144C/YEL055C/YHR197W/YBR142W/YIL069C/YNL096C/YLR186W/YGR159C/YLR106C/YOR119C/YHR089C/YGL078C/YKL014C/YHL033C/YDL060W/YPL211W/YJL010C/YGR214W/YBR189W/YPL093W/YOL080C/YGL171W/YNL061W/YMR131C/YJL177W/YLR409C/YNL002C/YDR449C/YKL009W/YLR196W/YGL120C/YOR310C/YBR247C/YCR057C/YHL001W/YLR129W/YLR063W/YDL166C/YIL091C/YJL109C/YHR088W/YOR272W/YMR229C/YLR002C/YOL010W/YPL012W/YGL076C/YLL008W/YOR243C/YIL133C/YHR052W/YOR001W/YLR197W/YLR222C/YKR081C/YLR435W/YGR128C/YML063W/YOR056C/YHR169W/YOL041C/YLR175W/YER131W/YDR025W/YHR085W/YDR500C/YLR048W/YHR066W/YOR048C/YDR324C/YOL077C/YPR112C/YDR083W/YDL083C/YNL207W/YPL090C/YJL033W/YOR096W/YKR024C/YBL004W/YLL045C/YKR063C/YGL111W/YBR181C/YNL075W/YOR294W/YER102W/YDL031W/YNL182C/YDL148C/YDL208W/YML026C/YNL124W/YGR251W/YPL266W/YOR063W/YLR276C/YDR091C/YDL014W/YDL136W/YAL035W/YER127W/YKL021C/YOL144W/YHR065C/YEL026W/YMR093W/YHR148W/YGR145W/YGL123W/YER082C/YJL191W/YMR290C/YKL099C/YOL022C/YCR047C/YKR057W/YHR196W/YDR087C/YDR398W/YNL022C/YPR132W/YER074W/YPL217C/YLR167W/YHR062C/YJR002W/YFL002C/YPR137W/YDL213C/YDR450W/YNR038W/YBR141C/YBL072C/YOL021C/YJR041C/YDL153C/YNR054C/YCL054W/YBR048W/YMR128W/YJL136C/YDR339C/YML093W/YNL069C/YAL025C/YOR287C/YDR312W/YGR280C/YPL143W/YMR239C/YLR264W/YKL172W/YIL019W/YPL043W/YER126C/YPL082C/YER002W/YKR060W/YHR081W/YGL030W/YER006W/YNR046W/YBL018C/YGR095C/YGL135W/YDR365C/YBR257W/YGR030C/YNL308C/YLR185W/YNL227C/YHR064C/YOR078W/YDL229W/YNL209W/YNL221C/YDL036C/YOL142W/YHR021C/YDR299W/YGR285C/YDR021W/YLR051C/YLR068W/YNL110C/YNL112W/YCR087C-A/YPR016C/YLL011W/YMR014W/YPL126W/YOR004W/YCL059C/YOR145C/YKL082C/YPR143W/YDR478W/YKL006W/YIL096C/YOR369C/YHR069C/YCR031C/YGR271C-A/YDR412W/YHR072W-A/YLL035W/YML010W/YNR024W/YKL078W/YOR167C/YPL146C/YFR001W/YFL023W/YAL033W/YOR006C/YCR016W/YGR103W/YGR081C/YHR040W/YJR055W/YGL029W
+GO:0016072                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               YJL050W/YMR049C/YGR158C/YJL069C/YPR010C/YNL132W/YPR144C/YEL055C/YHR197W/YBR142W/YIL069C/YNL096C/YLR186W/YGR159C/YLR106C/YOR119C/YHR089C/YGL078C/YKL014C/YHL033C/YDL060W/YPL211W/YJL010C/YGR214W/YOR341W/YBR189W/YPL093W/YOL080C/YGL171W/YNL061W/YMR131C/YJL177W/YLR409C/YNL002C/YOR340C/YDR449C/YKL009W/YLR196W/YGL120C/YOR310C/YBR247C/YCR057C/YHL001W/YLR129W/YLR063W/YDL166C/YIL091C/YJL109C/YHR088W/YNL248C/YOR272W/YMR229C/YLR002C/YOL010W/YPL012W/YGL076C/YLL008W/YOR243C/YIL133C/YHR052W/YOR001W/YLR197W/YLR222C/YKR081C/YLR435W/YGR128C/YML063W/YOR056C/YHR169W/YOL041C/YLR175W/YER131W/YDR025W/YHR085W/YDR500C/YLR048W/YHR066W/YOR048C/YDR324C/YOL077C/YPR112C/YDR083W/YDL083C/YNL207W/YPL090C/YJL033W/YOR096W/YKR024C/YBL004W/YLL045C/YJR063W/YKR063C/YGL111W/YBR181C/YNL075W/YOR294W/YER102W/YDL031W/YNL182C/YDL148C/YDL208W/YML026C/YNL124W/YGR251W/YPL266W/YOR063W/YLR276C/YDR091C/YDL014W/YDL136W/YAL035W/YJL148W/YER127W/YKL021C/YOL144W/YHR065C/YEL026W/YMR093W/YHR148W/YGR145W/YGL123W/YER082C/YJL191W/YMR290C/YKL099C/YOL022C/YCR047C/YKR057W/YHR196W/YDR087C/YDR398W/YNL022C/YPR132W/YER074W/YPL217C/YLR167W/YHR062C/YJR002W/YFL002C/YPR137W/YDL213C/YDR450W/YNR038W/YBR141C/YBL072C/YOL021C/YJR041C/YDL153C/YNR054C/YCL054W/YBR048W/YMR128W/YJL136C/YDR339C/YML093W/YNL069C/YAL025C/YOR287C/YDR312W/YGR280C/YPL143W/YMR239C/YLR264W/YKL172W/YIL019W/YNL023C/YPL043W/YER126C/YPL082C/YER002W/YKR060W/YHR081W/YGL030W/YER006W/YNR046W/YBL018C/YGR095C/YGL135W/YDR365C/YBR257W/YGR030C/YNL308C/YLR185W/YNL227C/YHR064C/YOR078W/YDL229W/YNL209W/YBL014C/YNL221C/YDL036C/YOL142W/YHR021C/YDR299W/YGR285C/YDR021W/YLR051C/YLR068W/YNL110C/YNL112W/YCR087C-A/YPR016C/YNL088W/YLL011W/YMR014W/YPL126W/YOR004W/YCL059C/YOR145C/YKL082C/YPR143W/YDR478W/YKL006W/YIL096C/YOR369C/YHR069C/YCR031C/YGR271C-A/YJL025W/YDR412W/YMR116C/YKL049C/YHR072W-A/YLL035W/YML010W/YNR024W/YKL078W/YOR167C/YPL146C/YFR001W/YFL023W/YDR156W/YAL033W/YOR006C/YCR016W/YBR010W/YGR103W/YML043C/YGR081C/YHR040W/YJR055W/YGL029W
+GO:0042274                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   YJL069C/YNL132W/YPR144C/YIL069C/YNL096C/YLR186W/YGR159C/YOR119C/YDL060W/YJL010C/YGR214W/YBR189W/YGL171W/YDR449C/YGL120C/YOR310C/YBR247C/YCR057C/YLR129W/YDL166C/YIL091C/YJL109C/YMR229C/YOL010W/YPL012W/YLR222C/YLR435W/YGR128C/YLR336C/YML063W/YOR056C/YHR169W/YDR025W/YLR048W/YPL226W/YOL121C/YDR324C/YPR112C/YDL083C/YNL207W/YDR447C/YPL090C/YOR096W/YBL004W/YBR181C/YNL075W/YOR294W/YER102W/YDL148C/YML026C/YGR251W/YPL266W/YAL035W/YER127W/YHR065C/YEL026W/YMR093W/YHR148W/YGR145W/YER082C/YJL191W/YMR290C/YKL099C/YOL022C/YCR047C/YKR057W/YHR196W/YDR398W/YPR132W/YER074W/YPL217C/YLR167W/YJR002W/YPR137W/YDL213C/YNL302C/YDR450W/YBL072C/YDL153C/YNR054C/YBR048W/YMR128W/YJL136C/YDR339C/YML093W/YOR287C/YML024W/YLR264W/YIL019W/YKR060W/YNR046W/YNL308C/YOR078W/YHR021C/YDR299W/YOL040C/YDR021W/YLR051C/YLR068W/YPL239W/YLL011W/YMR014W/YPL126W/YOR004W/YCL059C/YOR145C/YKL082C/YOR369C/YCR031C/YGR271C-A/YKL078W/YOR167C/YFR001W/YMR269W/YOR006C/YGR103W/YKL143W/YGR081C
+GO:0042273                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           YMR049C/YEL055C/YHR197W/YBR142W/YGR162W/YLL034C/YLR106C/YDR496C/YGL078C/YKL014C/YHL033C/YPL211W/YOR206W/YPL093W/YOL080C/YNL061W/YJL177W/YNL002C/YDR161W/YOR234C/YKL009W/YGL120C/YHL001W/YGR085C/YHR088W/YOR272W/YIR012W/YMR229C/YLR448W/YLR002C/YGL076C/YLL008W/YIL110W/YIL133C/YHR052W/YPR169W/YKR081C/YLR435W/YCR072C/YOL041C/YER131W/YEL054C/YDR060W/YHR085W/YDR500C/YHR066W/YOR048C/YLR344W/YOL077C/YDR418W/YDR083W/YML073C/YKR024C/YLL045C/YKR063C/YGL111W/YBR267W/YOR294W/YDL031W/YNL182C/YGR245C/YDL208W/YOR063W/YFR031C-A/YLR276C/YDR091C/YJL122W/YDL136W/YGR034W/YKL021C/YOL144W/YEL026W/YLR397C/YMR290C/YPR102C/YGL099W/YFL002C/YNR038W/YCL054W/YNL069C/YAL025C/YDR312W/YPL143W/YOL127W/YKL172W/YPL043W/YER126C/YER002W/YKR060W/YER006W/YNR046W/YLR009W/YGL135W/YLR185W/YNL227C/YIR026C/YNL110C/YPR016C/YLR340W/YLR221C/YKL082C/YPR143W/YKL006W/YDR412W/YLL035W/YPL146C/YFR001W/YDL063C/YCR016W/YPL193W/YGR103W/YHR040W/YJR055W
+           Count richFactor
+GO:0042254   299  0.7475000
+GO:0022613   315  0.6535270
+GO:0006364   227  0.7827586
+GO:0016072   242  0.7014493
+GO:0042274   118  0.8428571
+GO:0042273   113  0.8625954
+\end{verbatim}
+
+With this comparison, \texttt{comparisonEtOhresponse\_go}, I'm
+interested in seeing which genes are significantly up-regulated in the
+comparison between the WT and the mutant phenotypes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  For that novel gene list you chose for yourself, which GO term had the
+  smallest adjusted p-value?
+\end{enumerate}
+
+The GO term with the smallest adjusted p-value is `proteinogenic amino
+acid metabolic process'.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Generate a list (or lists) and perform GO analyses to answer the
+  following question: of the GO Biological Processes upregulated during
+  the yeast ethanol response, which are likely regulated by the Msn2/4
+  transcription factors, and which ones are not (list the top 3 or so of
+  each)?
+\end{enumerate}
+
+In the \texttt{WT.vs.msn24dd\_EtOH\_response} dataset, negative logFC
+values indicate that the mutant has a lower response relative to the
+wildtype, while positive logFc values indicate that the mutant has a
+greater response relative to the wildtype. So, genes with a positive
+logFC in this dataset are likely upregulated due to the the Msn2/4
+mutant transcription factors.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{comparisonEtOhresponse }\OtherTok{\textless{}{-}}\NormalTok{ msn24\_EtOH }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(fdr\_WT.vs.msn24dd\_EtOH\_response }\SpecialCharTok{\textless{}} \FloatTok{0.01}\NormalTok{, }
+\NormalTok{         logFC\_WT.vs.msn24dd\_EtOH\_response }\SpecialCharTok{\textgreater{}=} \DecValTok{1}
+\NormalTok{  )}
+
+\NormalTok{comparisonEtOhresponse\_go }\OtherTok{\textless{}{-}}\NormalTok{ comparisonEtOhresponse }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pull}\NormalTok{(gene\_id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{enrichGO}\NormalTok{(}
+    \AttributeTok{OrgDb =} \StringTok{"org.Sc.sgd.db"}\NormalTok{,}
+    \AttributeTok{universe =}\NormalTok{ msn24\_EtOH}\SpecialCharTok{$}\NormalTok{gene\_id,}
+    \AttributeTok{keyType =} \StringTok{"ORF"}\NormalTok{,}
+    \AttributeTok{ont=} \StringTok{"BP"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{richFactor =}\NormalTok{ Count }\SpecialCharTok{/} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{sub}\NormalTok{(}\StringTok{"/}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d+"}\NormalTok{, }\StringTok{""}\NormalTok{, BgRatio))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(pvalue)}
+
+\FunctionTok{head}\NormalTok{(comparisonEtOhresponse\_go)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+                   ID                                   Description GeneRatio
+GO:0170039 GO:0170039    proteinogenic amino acid metabolic process     16/85
+GO:0170033 GO:0170033                L-amino acid metabolic process     16/85
+GO:1901605 GO:1901605            alpha-amino acid metabolic process     16/85
+GO:0009066 GO:0009066 aspartate family amino acid metabolic process      9/85
+GO:0032197 GO:0032197                            retrotransposition      7/85
+GO:0006520 GO:0006520                  amino acid metabolic process     16/85
+            BgRatio RichFactor FoldEnrichment   zScore       pvalue
+GO:0170039 160/5544 0.10000000       6.522353 8.844168 1.539692e-09
+GO:0170033 162/5544 0.09876543       6.441830 8.771139 1.851828e-09
+GO:1901605 175/5544 0.09142857       5.963294 8.324683 5.773456e-09
+GO:0009066  59/5544 0.15254237       9.949352 8.622925 2.049941e-07
+GO:0032197  33/5544 0.21212121      13.835294 9.227264 4.801071e-07
+GO:0006520 242/5544 0.06611570       4.312299 6.574198 5.605289e-07
+               p.adjust       qvalue
+GO:0170039 5.527706e-07 4.756273e-07
+GO:0170033 5.527706e-07 4.756273e-07
+GO:1901605 1.148918e-06 9.885777e-07
+GO:0009066 3.059537e-05 2.632556e-05
+GO:0032197 3.961001e-05 3.408214e-05
+GO:0006520 3.961001e-05 3.408214e-05
+                                                                                                                                    geneID
+GO:0170039 YBL039C/YEL046C/YOL058W/YOR108W/YPR145W/YER091C/YGL009C/YMR189W/YJL200C/YLR180W/YIL167W/YLL062C/YLR303W/YPR035W/YGL125W/YDR380W
+GO:0170033 YBL039C/YEL046C/YOL058W/YOR108W/YPR145W/YER091C/YGL009C/YMR189W/YJL200C/YLR180W/YIL167W/YLL062C/YLR303W/YPR035W/YGL125W/YDR380W
+GO:1901605 YBL039C/YEL046C/YOL058W/YOR108W/YPR145W/YER091C/YGL009C/YMR189W/YJL200C/YLR180W/YIL167W/YLL062C/YLR303W/YPR035W/YGL125W/YDR380W
+GO:0009066                                                         YEL046C/YPR145W/YER091C/YJL200C/YLR180W/YLL062C/YLR303W/YGL125W/YDR380W
+GO:0032197                                                             YBL005W-B/YNL284C-B/YMR045C/YBL005W-A/YLR035C-A/YDR170W-A/YOR192C-B
+GO:0006520 YBL039C/YEL046C/YOL058W/YOR108W/YPR145W/YER091C/YGL009C/YMR189W/YJL200C/YLR180W/YIL167W/YLL062C/YLR303W/YPR035W/YGL125W/YDR380W
+           Count richFactor
+GO:0170039    16 0.10000000
+GO:0170033    16 0.09876543
+GO:1901605    16 0.09142857
+GO:0009066     9 0.15254237
+GO:0032197     7 0.21212121
+GO:0006520    16 0.06611570
+\end{verbatim}
+
+This indicates that the upregulation of proteinogenic amino acid
+metabolism + biosynthesis, and alpha-amino acid metabolism +
+biosynthesis, and transposition + retrotransposition are all due to the
+Msn2/4 transcription factors.
+
+\textbf{Collaborators:} n/a
+
+\textbf{References:} n/a
+
+\textbf{AI Use:} n/a
+
+System information for reproducibility:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pander}\SpecialCharTok{::}\FunctionTok{pander}\NormalTok{(}\FunctionTok{sessionInfo}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{R version 4.4.0 (2024-04-24)}
+
+\textbf{Platform:} aarch64-apple-darwin20
+
+\textbf{locale:}
+en\_US.UTF-8\textbar\textbar en\_US.UTF-8\textbar\textbar en\_US.UTF-8\textbar\textbar C\textbar\textbar en\_US.UTF-8\textbar\textbar en\_US.UTF-8
+
+\textbf{attached base packages:} \emph{stats4}, \emph{stats},
+\emph{graphics}, \emph{grDevices}, \emph{utils}, \emph{datasets},
+\emph{methods} and \emph{base}
+
+\textbf{other attached packages:} \emph{ggVennDiagram(v.1.5.7)},
+\emph{org.Sc.sgd.db(v.3.20.0)}, \emph{AnnotationDbi(v.1.68.0)},
+\emph{IRanges(v.2.40.1)}, \emph{S4Vectors(v.0.44.0)},
+\emph{Biobase(v.2.66.0)}, \emph{BiocGenerics(v.0.52.0)},
+\emph{clusterProfiler(v.4.14.6)}, \emph{lubridate(v.1.9.4)},
+\emph{forcats(v.1.0.0)}, \emph{stringr(v.1.5.1)}, \emph{dplyr(v.1.1.4)},
+\emph{purrr(v.1.0.2)}, \emph{tidyr(v.1.3.1)}, \emph{tibble(v.3.2.1)},
+\emph{ggplot2(v.4.0.1)}, \emph{tidyverse(v.2.0.0)} and
+\emph{readr(v.2.1.6)}
+
+\textbf{loaded via a namespace (and not attached):} \emph{DBI(v.1.2.3)},
+\emph{gson(v.0.1.0)}, \emph{rlang(v.1.1.4)}, \emph{magrittr(v.2.0.3)},
+\emph{DOSE(v.4.0.1)}, \emph{compiler(v.4.4.0)}, \emph{RSQLite(v.2.4.5)},
+\emph{png(v.0.1-8)}, \emph{vctrs(v.0.6.5)}, \emph{reshape2(v.1.4.4)},
+\emph{pkgconfig(v.2.0.3)}, \emph{crayon(v.1.5.3)},
+\emph{fastmap(v.1.2.0)}, \emph{XVector(v.0.46.0)},
+\emph{pander(v.0.6.6)}, \emph{rmarkdown(v.2.28)}, \emph{tzdb(v.0.4.0)},
+\emph{enrichplot(v.1.26.6)}, \emph{UCSC.utils(v.1.2.0)},
+\emph{bit(v.4.5.0.1)}, \emph{xfun(v.0.56)}, \emph{zlibbioc(v.1.52.0)},
+\emph{cachem(v.1.1.0)}, \emph{aplot(v.0.2.9)},
+\emph{GenomeInfoDb(v.1.42.3)}, \emph{jsonlite(v.1.8.8)},
+\emph{blob(v.1.2.4)}, \emph{BiocParallel(v.1.40.2)},
+\emph{parallel(v.4.4.0)}, \emph{R6(v.2.5.1)}, \emph{stringi(v.1.8.4)},
+\emph{RColorBrewer(v.1.1-3)}, \emph{GOSemSim(v.2.32.0)},
+\emph{Rcpp(v.1.0.14)}, \emph{knitr(v.1.51)}, \emph{ggtangle(v.0.1.1)},
+\emph{R.utils(v.2.13.0)}, \emph{Matrix(v.1.7-0)},
+\emph{splines(v.4.4.0)}, \emph{igraph(v.2.2.1)},
+\emph{timechange(v.0.3.0)}, \emph{tidyselect(v.1.2.1)},
+\emph{qvalue(v.2.38.0)}, \emph{rstudioapi(v.0.17.1)},
+\emph{yaml(v.2.3.10)}, \emph{codetools(v.0.2-20)}, \emph{curl(v.6.2.0)},
+\emph{lattice(v.0.22-6)}, \emph{plyr(v.1.8.9)}, \emph{treeio(v.1.30.0)},
+\emph{withr(v.3.0.2)}, \emph{KEGGREST(v.1.46.0)}, \emph{S7(v.0.2.1)},
+\emph{evaluate(v.0.24.0)}, \emph{gridGraphics(v.0.5-1)},
+\emph{Biostrings(v.2.74.1)}, \emph{BiocManager(v.1.30.27)},
+\emph{pillar(v.1.10.1)}, \emph{ggtree(v.3.14.0)}, \emph{ggfun(v.0.2.0)},
+\emph{generics(v.0.1.3)}, \emph{vroom(v.1.6.5)}, \emph{hms(v.1.1.3)},
+\emph{scales(v.1.4.0)}, \emph{tidytree(v.0.4.7)}, \emph{glue(v.1.7.0)},
+\emph{lazyeval(v.0.2.2)}, \emph{tools(v.4.4.0)},
+\emph{data.table(v.1.16.4)}, \emph{fgsea(v.1.32.4)}, \emph{fs(v.1.6.4)},
+\emph{fastmatch(v.1.1-8)}, \emph{cowplot(v.1.1.3)},
+\emph{grid(v.4.4.0)}, \emph{ape(v.5.8-1)}, \emph{colorspace(v.2.1-1)},
+\emph{nlme(v.3.1-164)}, \emph{GenomeInfoDbData(v.1.2.13)},
+\emph{patchwork(v.1.3.0)}, \emph{cli(v.3.6.3)},
+\emph{rappdirs(v.0.3.3)}, \emph{gtable(v.0.3.6)},
+\emph{R.methodsS3(v.1.8.2)}, \emph{yulab.utils(v.0.2.3)},
+\emph{digest(v.0.6.37)}, \emph{ggrepel(v.0.9.6)},
+\emph{ggplotify(v.0.1.3)}, \emph{farver(v.2.1.2)},
+\emph{memoise(v.2.0.1)}, \emph{htmltools(v.0.5.8.1)},
+\emph{R.oo(v.1.27.1)}, \emph{lifecycle(v.1.0.4)}, \emph{httr(v.1.4.7)},
+\emph{GO.db(v.3.20.0)} and \emph{bit64(v.4.6.0-1)}
+
+
+
+
+\end{document}
