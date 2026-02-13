@@ -1,0 +1,201 @@
+---
+title: "Homework Assigment #2"
+author: Jeffrey Lewis & Carson Stacy
+date: "`r Sys.Date()`"
+format: 
+  html: 
+    code-fold: show
+  pdf: default
+  docx: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache=FALSE)
+```
+
+```{r import-dependencies}
+library(readr)
+library(tidyverse)
+library(dplyr)
+
+library(clusterProfiler)
+library(org.Sc.sgd.db)
+library(ggVennDiagram)
+
+BiocPkgs <- c("fgsea","clusterProfiler", "AnnotationDbi", "org.Sc.sgd.db")
+BiocManager::install(setdiff(BiocPkgs, rownames(installed.packages())))
+```
+
+```{r import-data}
+#| message: false
+#| warning: false
+msn24_EtOH <- readr::read_tsv("https://raw.githubusercontent.com/clstacy/GenomicAnalysis/main/Data/Msn24_EtOH/DE_genes_Msn24_EtOH.txt")
+```
+
+## Assignment #1: Due February 17th
+
+**Please upload your completed assignments into Blackboard as a .qmd file so that we can reproduce your code when relevant. Save your file as StudentID_Assignment2.**
+
+**General Rules:**
+
+1\) We strongly encourage people to work in groups and take advantage of any resources at your disposal (including AI--see the syllabus for our complete policy). However, we expect each student to demonstrate their own understanding by generating their own answers and not simply copying (which is plagiarism).
+
+2\) Science is collaborative, and we encourage students to work through these problems in groups. Please do cite your collaborators if any.
+
+3\) If you used any outside references, please cite them. Additionally if you used generative AI for the assignment, please provide a link to the prompt and answers. This will help us troubleshoot or provide feedback if the AI makes any mistakes.
+
+4\) Sonali and I are happy to field questions about the assignments either in class, via email, or by appointment.
+
+**Optional DataCamp Assignments:**
+
+The class has a free 6-month subscription to DataCamp, which has a whole bunch of interactive courses that span beginner level through advanced. You are free to take any courses of interest for free during the semester, and I would like to point out that there is a sequence of courses for [analyzing genomic data](https://app.datacamp.com/learn/skill-tracks/analyzing-genomic-data-in-r) that students may like to use throughout the semester to complement the activities in class.
+
+For this assignment period, I would highly recommend that students complete ["Introduction to Bioconductor in R,"](https://app.datacamp.com/learn/courses/introduction-to-bioconductor-in-r) Chapters #1 "What is Bioconductor?" and #4 "Introducing ShortRead."
+
+**The Main Assignment:**
+
+Using the "02_Gene_Ontology.qmd" exercise as a guide, answer the questions below.
+
+The 4^th^ and 5^th^ code chunks from that qmd fileshould download a file with all of the gene expression data for the comparison of wild-type yeast (YPS606) and the YPS606 *msn2/4*∆∆ mutant, and then change the headers to remove the ∆ characters that certain packages don't recognize. The resulting file is named "DE_genes_Msn24_EtOH.txt" and in case you cannot generate that file, it has also been uploaded onto OneDrive under Data Files -\> Msn24_EtOH -\> Differential_Expression. You can import the file directly into R Studio using the "Import Dataset" in the upper right Environment section. Select "From Text (readr)..." from the dropdown menu, and click "Browse..." to navigate your computer to select the file. Change the delimiter to "Tab," and make sure "First Row as Names" is checked. 
+
+If clusterProfiler is working, you'll be able to perform all of the GO enrichment analysis in R. If not, you can still open "DE_genes_Msn24_EtOH.txt" in Excel as a tab delimited text file and then copy and paste gene lists into an online tool. For this exercise, I would recommend the [Princeton GO Term Finder](https://go.princeton.edu/cgi-bin/GOTermFinder).
+
+Notes about the dataset:
+
+There are 5 different strain, environment, or (strain x environment) comparisons in the file:
+
+**yps606_wt_et_oh_response**: log~2~(YPS606 ethanol stress / YPS606 unstressed), so positive values denote genes induced by ethanol stress and negative values denote genes repressed by ethanol stress.
+
+**yps606_msn2_4dd_et_oh_response**: log~2~(YPS606 *msn2/4*∆∆ ethanol stress / YPS606 *msn2/4*∆∆ unstressed), and again positive values denote genes induced by ethanol stress and negative values denote genes repressed by ethanol stress.
+
+**wt_v_msn2_4dd_et_oh_response**: log~2~( (YPS606 *msn2/4*∆∆ ethanol stress / YPS606 *msn2/4*∆∆ unstressed) / (YPS606 ethanol stress / YPS606 unstressed) ), so negative values denote genes with lower expression for the *msn2/4*∆∆ mutant's ethanol response, and positive values denote genes with higher expression for *msn2/4*∆∆ mutant's ethanol response. E.g., *PGM2* has a logFC during the EtOH response of 7.60 in wild-type YPS606, but only 0.78 for the *msn2/4*∆∆ mutant's EtOH response. The WT vs. mutant EtOH response comparison yields a logFC of -6.96, consistent with a diminished EtOH response in the mutant.
+
+**wt_v_msn2_4dd_unstressed**: log~2~(YPS606 *msn2/4*∆∆ unstressed / YPS606 unstressed), so positive values denote genes with higher expression in the *msn2/4*∆∆ mutant under unstressed conditions, and negative values denote genes with lower expression in the *msn2/4*∆∆ mutant (note that the genes with the lowest expression in the *msn2/4∆∆* mutant are *MSN2* and *MSN4,* which makes sense since those two genes were deleted to create the mutant).
+
+**wt_v_msn2_4dd_et_oh_absolute**: log~2~(YPS606 *msn2/4*∆∆ ethanol strss / YPS606 ethanol stress), so positive values denote genes with higher expression in the *msn2/4*∆∆ mutant under ethanol stress, and negative values denote genes with lower expression in the *msn2/4*∆∆ mutant ethanol stress (note that this is not the same as looking at the EtOH response comparison between strains. While many of the genes with lower expression in the *msn2/4*∆∆ mutant are induced by EtOH stress in the wild-type strain, this is not universally true (e.g., *MRH1* has a logFC of 0.50 for the wild type ethanol response (not induced), but has -3.09 log~2~-fold lower expression in the *msn2/4*∆∆ mutant for this comparison).
+
+Answer the following questions. Where relevant, either type your answers below each question or include your code. Blank code chunks are included that you can paste from 02_Gene_Ontology.qmd or type commands into:
+
+1.  For the YPS606 wild type ethanol response (yps606_wt_et_oh_response), generate two gene lists: one where you select genes with an FDR \< 0.01 and that are upregulated with logFC of at least 1, and a second set where you use an FDR \< 0.05
+
+```{r}
+wtEtOHresponse_up_05 <- msn24_EtOH %>%
+  filter(fdr_YPS606_WT_EtOH_response < 0.05, 
+         logFC_YPS606_WT_etoh_response >= 1)
+
+wtEtOHresponse_up_05_go <- wtEtOHresponse_up_05 %>%
+  pull(gene_id) %>%
+  enrichGO(
+    OrgDb = "org.Sc.sgd.db",
+    universe = msn24_EtOH$gene_id,
+    keyType = "ORF",
+    ont= "BP") %>%
+  mutate(richFactor = Count / as.numeric(sub("/\\d+", "", BgRatio))) %>%
+  arrange(pvalue)
+```
+
+```{r}
+wtEtOHresponse_up_01 <- msn24_EtOH %>%
+  filter(fdr_YPS606_WT_EtOH_response < 0.01, 
+         logFC_YPS606_WT_etoh_response >= 1)
+  
+wtEtOHresponse_up_01_go <- wtEtOHresponse_up_01 %>%
+  pull(gene_id) %>%
+  enrichGO(
+    OrgDb = "org.Sc.sgd.db",
+    universe = msn24_EtOH$gene_id,
+    keyType = "ORF",
+    ont= "BP") %>%
+  mutate(richFactor = Count / as.numeric(sub("/\\d+", "", BgRatio))) %>%
+  arrange(pvalue)
+```
+
+```{r}
+head(wtEtOHresponse_up_01_go)
+```
+
+The most significantly enriched GO term at this significance cutoff is "carbohydrate metabolic process".
+
+2.  What percent of the genes would we expect to have that GO term in the DE list under the null hypothesis (and what is the null hypothesis)? What percent of the DE genes actually had that GO term?
+
+For the genes upregulated at FDR \< 0.01 logFC ≤ 1, the background ratio (or the null ratio, what we expect to see if there's no enrichment of the pathway) of 'carbohydrate metabolic process' is 272/5546 or `r 272/5546`. The gene ratio (the observed ratio) of 'carbohydrate metabolic process' is 138/1097 or `r  138/1097`. This represents an enrichment of \~2.56 (or 256%), indicating that the pathway is highly enriched.
+
+3.  For the upregulated comparison in question 1, change the logFC cutoff to at least 0 (so any amount of upregulation, no matter how small). What is the mean and median log fold change for genes with that logFC cutoff and a pval \< 0.01 but fdr \> 0.01? Are there any GO terms enriched for genes? What was your expectation
+
+```{r}
+msn24_EtOH %>%
+  filter(fdr_YPS606_WT_EtOH_response > 0.01,   # FDR > 0.01
+         logFC_YPS606_WT_etoh_response >= 0,   # logFC is at least 0
+         pvalue_YPS606_WT_etoh_response < 0.01 # pval < 0.01
+  ) %>%
+  
+  # Get mean and median logFC 
+  summarise(across(logFC_YPS606_WT_etoh_response, 
+                   list(mean = mean, 
+                        median = median), 
+                   na.rm = TRUE))
+```
+
+4.  Create your own novel comparison that was not in the original Gene Ontology exercise. For this novel comparisons, explain biologically why you are interested in this particular comparison and the rationale for the cutoffs chosen for generating a gene list. Paste or enter the code for the novel list in the box below.
+
+```{r}
+mutantEtOhresponse <- msn24_EtOH %>%
+  filter(fdr_YPS606_msn24dd_EtOH_response < 0.01, 
+         fdr_YPS606_msn24dd_EtOH_response <= -1
+  )
+
+mutantEtOhresponse_go <- mutantEtOhresponse %>%
+  pull(gene_id) %>%
+  enrichGO(
+    OrgDb = "org.Sc.sgd.db",
+    universe = msn24_EtOH$gene_id,
+    keyType = "ORF",
+    ont= "BP") %>%
+  mutate(richFactor = Count / as.numeric(sub("/\\d+", "", BgRatio))) %>%
+  arrange(pvalue)
+
+head(mutantEtOhresponse_go)
+```
+
+With this comparison, `comparisonEtOhresponse_go`, I'm interested in seeing which genes are significantly up-regulated in the comparison between the WT and the mutant phenotypes.
+
+5.  For that novel gene list you chose for yourself, which GO term had the smallest adjusted p-value?
+
+The GO term with the smallest adjusted p-value is 'proteinogenic amino acid metabolic process'.
+
+6.  Generate a list (or lists) and perform GO analyses to answer the following question: of the GO Biological Processes upregulated during the yeast ethanol response, which are likely regulated by the Msn2/4 transcription factors, and which ones are not (list the top 3 or so of each)?
+
+In the `WT.vs.msn24dd_EtOH_response` dataset, negative logFC values indicate that the mutant has a lower response relative to the wildtype, while positive logFc values indicate that the mutant has a greater response relative to the wildtype. So, genes with a positive logFC in this dataset are likely upregulated due to the the Msn2/4 mutant transcription factors. 
+
+```{r}
+comparisonEtOhresponse <- msn24_EtOH %>%
+  filter(fdr_WT.vs.msn24dd_EtOH_response < 0.01, 
+         logFC_WT.vs.msn24dd_EtOH_response >= 1
+  )
+
+comparisonEtOhresponse_go <- comparisonEtOhresponse %>%
+  pull(gene_id) %>%
+  enrichGO(
+    OrgDb = "org.Sc.sgd.db",
+    universe = msn24_EtOH$gene_id,
+    keyType = "ORF",
+    ont= "BP") %>%
+  mutate(richFactor = Count / as.numeric(sub("/\\d+", "", BgRatio))) %>%
+  arrange(pvalue)
+
+head(comparisonEtOhresponse_go)
+```
+
+This indicates that the upregulation of proteinogenic amino acid metabolism + biosynthesis, and alpha-amino acid metabolism + biosynthesis, and transposition + retrotransposition are all due to the Msn2/4 transcription factors.
+
+**Collaborators:** n/a
+
+**References:** n/a
+
+**AI Use:** n/a
+
+System information for reproducibility:
+
+```{r}
+pander::pander(sessionInfo())
+```
