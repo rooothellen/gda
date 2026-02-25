@@ -1,0 +1,284 @@
+---
+title: "Read Mapping"
+author: Jeffrey Lewis & Carson Stacy
+date: "`r Sys.Date()`"
+format: 
+  html: 
+    code-fold: show
+---
+
+```{r}
+set.seed("832")
+```
+
+## Description
+
+This activity provides an introduction to the process of mapping RNA-seq reads to a reference genome. We will use the Rsubread package to align reads to the yeast genome. We will also use Salmon, a pseudomapper, to quantify the expression of transcripts. 
+
+## Learning outcomes
+
+At the end of this exercise, you should be able to:
+
+-   Understand reference genomes and a genome index.
+-   Perform read alignment.
+-   Explain multi-mapping and unique mapping of reads.
+-   Understand the difference between read mapping and pseudomapping approaches.
+
+## Package Install
+
+As usual, make sure we have the right packages for this exercise
+
+```{r}
+if (!require("pak")) install.packages("pak"); library(pak)
+
+# this code installs the packages we need for this activity
+pak(c("tidyverse", "knitr", "readr",
+       "pander", "BiocManager", 
+       "dplyr", "stringr"))
+
+# One new package for this exercise:
+pak("Rsubread")
+```
+
+```{r, message=FALSE}
+# Load packages
+library(tidyverse)
+library(Rsubread)
+```
+
+## Load Data
+
+Previously, we filtered and trimmed our raw fastq files. They should be in the folder below, unless you chose a different place to store them.
+
+```{r get-files}
+
+dir_trimmed.fq_files <- "~/Documents/gda/Exercises/03_WorkingWithSequences/data/trimmed"
+
+trimmed_fastq_files <- list.files(path = dir_trimmed.fq_files, 
+                                  pattern = ".fastq.gz$", 
+                                  full.names = TRUE)
+trimmed_fastq_files
+```
+
+You should see the full paths to all 16 trimmed fastq files that we will be mapping to the reference genome today.
+
+# Alignment
+
+Read sequences are stored in compressed (gzipped) FASTQ files. Before the differential expression analysis can proceed, these reads must be aligned to the yeast genome and counted into annotated genes. This can be achieved with functions in the Rsubread package.
+
+## Retrieve the genome
+
+We will use a bash code chunk to download the latest genome
+
+```{bash fetch-genome}
+# Define the destination file path
+# You can change this file path to the path you want your data to go, or leave it.
+REF_DIR="/Users/$USER/Documents/gda/Reference"
+
+# make that directory if it doesn't already
+mkdir -p $REF_DIR
+
+# Define the URL of reference genome
+# (latest from ensembl)
+url="ftp://ftp.ensembl.org/pub/release-110/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz"
+
+
+# Check if the file already exists at the destination location
+if [ ! -f "$REF_DIR/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz" ]; then
+    echo "Reference genome not found, downloading..."
+    # If the file does not exist, download it using curl
+    curl -o "$REF_DIR/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz" "$url"
+    echo "Downloading finished"
+else
+    echo "File already exists at $REF_DIR Skipping download."
+fi
+```
+
+## Build the index
+
+The first step in performing the alignment is to build an index. In order to build an index you need to have the fasta file (.fa or .fasta), which can be downloaded from the UCSC genome browser. This may take several minutes to run. Building the full index using the whole genome usually takes about 30 minutes to an hr on a server for larger Eukaryotic genomes. Because yeast has a relatively small genome size, we are able to build the full index in class.
+
+```{r build-index}
+library(Rsubread)
+
+# Set path of the reference fasta file
+reference_genome = path.expand("~/Documents/gda/Reference/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz")
+
+# Choose destination path location for the index file
+index_reference_genome = path.expand("~/Documents/gda/Reference/index_rsubread_Saccharomyces_cerevisiae.R64-1-1")
+
+# build the index
+buildindex(basename=index_reference_genome, reference=reference_genome)
+```
+
+We can see the arguments available with the align function from the Rsubread package with the `args()` function
+
+```{r get-args}
+args(align)
+```
+
+This alignment process takes some time to finish.
+
+```{r align-reads}
+# run the alignment on all of the trimmed_fastq_files
+align(index=index_reference_genome, 
+      readfile1=trimmed_fastq_files,
+      type = "rna",
+      input_format = "gzFASTQ",
+      output_format = "BAM",
+      unique = TRUE,
+      nBestLocations = 1,
+      sortReadsByCoordinates = TRUE,
+      nthreads=6
+      )
+```
+
+The output of the alignment are bam files, one for each fastq file.
+
+We can get a summary of the proportion of reads that mapped to the reference genome using the `propmapped()` function.
+
+```{r output-summary}
+# create an object in R listing the bam files
+bam_files <- list.files(path = dir_trimmed.fq_files, 
+                        pattern = ".BAM$", full.names = TRUE)
+bam_files
+
+# find the proportion of reads that mapped for each sample
+props <- propmapped(files=bam_files)
+
+props |> print()
+```
+
+# Pseudomapping with Salmon
+
+Salmon is a widely used pseudomapper. It is not available to use in R, but we can use bash code chunks to run it in the same markdown document.
+
+First, we need to create a new conda environment for salmon.
+
+**Depending on your computer, you might need to run this code in terminal.**
+
+```{bash create-condaEnvironment, engine.opts='-l'}
+## Warning, if you did not complete Working_with_Sequences.Rmd activity, 
+#    your conda might not be set up correctly for this code.
+
+# create an environment for our pseudomapping with Salmon
+# this code is "extra" because it only creates env if not already existing.
+if conda info --envs | grep -q salmon; then echo "environment 'salmon' already exists"; else CONDA_SUBDIR=osx-64 conda create -y -n salmon -c conda-forge -c bioconda salmon=1.10.0; fi
+# the channel priority order above is needed to get a recent version via conda.
+
+# see available conda environments
+conda env list
+
+# activate our QC environment
+conda activate salmon
+
+# make sure desired packages are working
+which salmon
+
+# help page for using salmon
+salmon -h
+
+# it's always good coding practice to deactivate 
+# a conda environment at the end of a chunk
+conda deactivate
+```
+
+## Download transcriptome
+
+To make an index for Salmon, we need transcript sequences in the FASTA format.
+
+```{bash fetch-transcriptome}
+# Define the destination file path
+# Be sure to change this file path to the path you want your data to go
+REF_DIR="/Users/$USER/Documents/gda/Reference"
+
+# make that directory if it doesn't already
+mkdir -p $REF_DIR
+
+# Define the URL of reference transcriptome
+# (latest from ensembl)
+url="ftp://ftp.ensembl.org/pub/release-110/fasta/saccharomyces_cerevisiae/cdna/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa.gz"
+
+
+# Check if the file already exists at the destination location
+if [ ! -f "$REF_DIR/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa.gz" ]; then
+    echo "Reference transcriptome not found, downloading..."
+    # If the file does not exist, download it using curl
+    curl -o "$REF_DIR/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa.gz" "$url"
+    echo "Downloading finished"
+else
+    echo "File already exists at $REF_DIR Skipping download."
+fi
+```
+
+## Building the Salmon index
+
+Salmon can index by using the command `salmon index`. A recent feature update to Salmon includes an option to map to decoys, we will use the entire genome as the decoy for our index, because the *S. cerevesiae* genome is small. You can read more at: <https://salmon.readthedocs.io/en/latest/salmon.html#preparing-transcriptome-indices-mapping-based-mode>.
+
+```{bash index-salmon, engine.opts='-l', message=FALSE}
+# We need to set a variable for where the transcriptome file is
+REF_DIR="/Users/$USER/Documents/gda/Reference"
+TRANSCRIPTOME="/Users/$USER/Documents/gda/Reference/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa.gz"
+GENOME="/Users/$USER/Documents/gda/Reference/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz"
+
+# Activate conda salmon environment
+conda activate salmon
+
+# Run a script that generates a decoy.txt file from the genome we downloaded
+grep "^>" <(gunzip -c $GENOME) | cut -d " " -f 1 > $REF_DIR/decoys.txt
+sed -i.bak -e 's/>//g' $REF_DIR/decoys.txt
+
+# Combine the transcriptome and genome into a single file for indexing
+cat $TRANSCRIPTOME $GENOME > $REF_DIR/gentrome.fasta.gz
+
+
+# We will use the yeast, but it needs to be indexed by salmon
+salmon index -t $REF_DIR/gentrome.fasta.gz -d $REF_DIR/decoys.txt -p 4 -i $REF_DIR/index_salmon_Saccharomyces_cerevisiae.R64-1-1
+
+conda deactivate
+```
+
+Notice that we combined the fasta file of the transcriptome with the fasta file of the entire genome (in that order) into the gentrome.fasta.gz file which was then indexed.
+
+Salmon is a pseudomapper, so it doesn't create sam/bam files and is instead able to count directly from the fastq files. We will do the pseudomapping and counting all in one step in the next activity.
+
+## Questions
+
+With Rsubread:
+
+**Question 1**: Try aligning the fastq files allowing multi-mapping reads (set unique = FALSE), allowing for up to 6 "best" locations to be reported (nBestLocations = 6), and allow reads to be fractionally counted (fraction = TRUE). Specify the output file names (bam_files_multi) by substituting ".fastq.gz" with ".multi.bam" so we don't overwrite our unique alignment bam files.
+
+```{r multimap-align, eval=FALSE}
+# Define the pattern and replacement
+pattern <- "\\.fastq\\.gz$"
+replacement <- "subread.multi.bam"
+
+# Create the new file names
+bam_files_multi <- gsub(pattern, replacement, trimmed_fastq_files)
+
+# update this code to run with Rsubread multimapping, as described above.
+align(index=index_reference_genome, 
+      readfile1=trimmed_fastq_files,
+      output_file = bam_files_multi,
+      type = "rna",
+      input_format = "gzFASTQ",
+      output_format = "BAM",
+      unique = FALSE,
+      nBestLocations = 6,
+      nthreads=6
+      )
+```
+
+**Question 2**: Look at the proportion of reads mapped and see if we get any more reads mapping by specifying a less stringent criteria.
+
+With Salmon:
+
+**Question 3**: What are the pros and cons of using Salmon vs subread for mapping reads?
+
+Be sure to knit this file into a pdf or html file once you're finished.
+
+System information for reproducibility:
+
+```{r}
+pander::pander(sessionInfo())
+```

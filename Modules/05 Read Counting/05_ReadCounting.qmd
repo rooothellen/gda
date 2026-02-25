@@ -1,0 +1,302 @@
+---
+title: "Read Counting"
+author: Jeffrey Lewis & Carson Stacy
+date: "`r Sys.Date()`"
+format: 
+  html: 
+    code-fold: show
+---
+
+```{r}
+set.seed("5800")
+```
+
+## Description
+
+This activity provides an introduction to the process of counting mapped RNA-seq reads. We will use the `Rsubread` package to align reads to the yeast genome. We will also use Salmon to generate read counts. 
+
+## Learning outcomes
+
+At the end of this exercise, you should be able to:
+
+-   Understand the relationship between BAM files and read counting.
+-   Identify the components of a GTF file.
+-   Map reads to a reference genome.
+
+## Package Install
+
+As usual, make sure we have the right packages for this exercise
+
+```{r}
+if (!require("pak")) install.packages("pak"); library(pak)
+
+# One new package for this exercise:
+pak("Rsubread")
+```
+
+```{r, message=FALSE}
+# Load packages
+library(tidyverse)
+library(Rsubread)
+```
+
+
+## Load Mapped Reads
+
+Previously, we aligned our fastq files to the reference genome, generating BAM files. They should be in your `~/Desktop/Genomic_Data_Analysis/Data/Trimmed_rfastp` folder, unless you chose a different place to store them.
+
+You can also manually download the BAM files from OneDrive by navigating to `Data Files/Msn24_EtOH/bam_files`. If you do manually download, make sure to move files to the same path as below.
+
+```{r}
+# Where the bam files are located (default same as trimmed fastq file location)
+bam_file_dir <- "~/Documents/gda/Exercises/03_WorkingWithSequences/data/trimmed/"
+
+# save list of all of those files with their full path
+bam.files <- list.files(path = bam_file_dir, 
+                                  pattern = ".subread.BAM$", 
+                                  full.names = TRUE)
+# make sure we see what we expect.
+bam.files
+```
+
+You should see the full paths to all 16 trimmed fastq bam files that we will be mapping to the reference genome today.
+
+# Read Counting
+
+We currently have our raw reads mapped to the genome in the form of bam files. Before we can analyze the data for differential expression, the reads must be assigned and counted towards annotated genes. This can be achieved with functions in the `Rsubread` package, we all also see how to do this with Salmon.
+
+## Retrieve the genome annotation
+
+We will use a bash code chunk to download the latest genome annotation
+
+```{bash fetchGenomeAnnotation}
+# Define the destination file path
+REF_DIR="/Users/$USER/Documents/gda/Reference"
+# If this directory doesn't exist, you need to first complete the Read_Mapping.Rmd exercise. 
+
+# Define the URL of reference genome annotation (gtf)
+# (latest from ensembl)
+url="ftp://ftp.ensembl.org/pub/release-110/gtf/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.110.gtf.gz"
+
+# Check if the file already exists at the destination location
+if [ ! -f "$REF_DIR/Saccharomyces_cerevisiae.R64-1-1.110.gtf.gz" ]; then
+    echo "Reference genome annotation not found, downloading..."
+    # If the file does not exist, download it using curl
+    curl -o "$REF_DIR/Saccharomyces_cerevisiae.R64-1-1.110.gtf.gz" "$url"
+    echo "Downloading finished"
+else
+    echo "File already exists at $REF_DIR Skipping download."
+fi
+```
+
+Let's take a look at the first few lines of this `gtf` file
+
+```{r seeGTF}
+# see the header columns with metadata starting with #! and delimited with \t
+read_csv("~/Documents/gda/Reference/Saccharomyces_cerevisiae.R64-1-1.110.gtf.gz", 
+    col_names = FALSE) %>% head(10)
+
+# We can also take a look at the first few entries to see the columns
+read_tsv("~/Documents/gda/Reference/Saccharomyces_cerevisiae.R64-1-1.110.gtf.gz", 
+    col_names = FALSE,  comment = "#", trim_ws = TRUE) %>% head(20)
+```
+
+There are 9 columns in a standard gtf file, information about each is available here: <https://useast.ensembl.org/info/website/upload/gff.html>
+
+Note that version 2 of gff is identical to the gtf format.
+
+## Counting with FeatureCounts
+
+```{r}
+library(Rsubread)
+
+# Set path of the reference annotation gzipped gtf file
+reference_annotation = "~/Documents/gda/Reference/Saccharomyces_cerevisiae.R64-1-1.110.gtf.gz"
+```
+
+
+The `Rsubread` package has a function for counting features, creatively named `featureCounts`. We can see the arguments that this function takes with the `args()` function.
+
+```{r argsCount}
+args(featureCounts)
+```
+
+```{r alignReads}
+# This command counts the number of each feature per fastq file, 
+#.  generating an output we can use later.
+fc <- featureCounts(bam.files,
+                    annot.ext = reference_annotation,
+                    isGTFAnnotationFile = TRUE,
+                    GTF.featureType = "exon"
+                    )
+```
+
+We can see what all is stored in the featureCounts output object `fc`.
+
+```{r identifyComponents}
+names(fc)
+```
+
+The statistics of the read mapping can be seen with `fc$stats`. This reports the numbers of unassigned reads and the reasons why they are not assigned (eg. ambiguity, multi-mapping, secondary alignment, mapping quality, fragment length, chimera, read duplicate, non-junction and so on), in addition to the number of successfully assigned reads for each library.
+
+```{r}
+fc$stat
+```
+
+## Counts
+
+The counts for the samples are stored in `fc$counts`.
+
+We can look at the dimensions of the counts to see how many genes and samples are present. The first number is the number of genes and the second number is the number of samples.
+
+```{r}
+dim(fc$counts)
+```
+
+let's take a look at the first few lines of `fc$counts`
+
+```{r}
+head(fc$counts)
+```
+
+The row names of the `fc$counts` matrix represent the "Systematic Name" for each gene (can be Entrez gene identifiers for other organisms) and the column names are the output filenames from calling the align function.
+
+The annotation slot shows the annotation information that `featureCounts` used to summarise reads over genes.
+
+```{r}
+head(fc$annotation)
+```
+
+# Saving `fc` object for future use
+
+We will need to use this object in our next class. We can use the R function `saveRDS()` to save the R object to your computer, so it can be accessed at a later date.
+
+```{r save-fc}
+# create a directory for the count output to go into if not already present
+dir_output_counts <- path.expand("~/Documents/gda/Exercises/03_WorkingWithSequences/data/counts/Rsubread/")
+if (!dir.exists(dir_output_counts)) {dir.create(dir_output_counts, recursive = TRUE)}
+
+# save the R data object
+saveRDS(object = fc, file = paste0(dir_output_counts,"rsubread.yeast_fc_output.Rds"))
+
+# often, we want to share this file as a tsv file. Here is how we can do that:
+write_tsv(data.frame(
+            fc$annotation[,"GeneID"],
+            fc$counts,
+            stringsAsFactors=FALSE),
+    file=paste0(dir_output_counts,"rsubread.gene_counts.merged.yeast.tsv"))
+```
+
+
+# Salmon
+
+Let's go through using the software tool called salmon to (psuedo)count reads directly from the trimmed fastq.gz files
+
+## Pseudomapping & counting
+
+Note, this requires you to have the files and run the previous code to set up Salmon software and index from the exercise we did at the end of last class (`04_ReadMapping.qmd`) in order to work.
+
+```{bash pseudoCount-salmon, engine.opts='-l'}
+DATA_DIR="/Users/$USER/Documents/gda/Exercises/03_WorkingWithSequences/data/trimmed"
+SALMON_OUT_DIR="/Users/$USER/Documents/gda/Exercises/03_WorkingWithSequences/data/Counts/Salmon"
+SALMON_INDEX_DIR="/Users/$USER/Documents/gda//Reference/index_salmon_Saccharomyces_cerevisiae.R64-1-1"
+
+# make the analysis directory if it doesn't already exist
+mkdir -p $SALMON_OUT_DIR
+
+# activate the salmon environment
+conda activate salmon
+
+# loop through all of the fastq files
+for fn in $DATA_DIR/*.fastq.gz;
+do
+samp=`basename ${fn}`
+echo "Processing sample ${samp}"
+
+# run salmon
+salmon quant -i $SALMON_INDEX_DIR -l A \
+         -r ${fn} \
+         --useVBOpt \
+         -p 4 --validateMappings -o $SALMON_OUT_DIR/${samp}_quant
+done
+
+# combine all of the output files into a merged count matrix
+salmon quantmerge --quants $SALMON_OUT_DIR/*_quant --column numreads -o $SALMON_OUT_DIR/salmon.gene_counts.merged.yeast.tsv 
+
+# remove the _mRNA from gene name
+sed -i '' -E 's/^([^\t]+)_mRNA(\t|$)/\1\2/' $SALMON_OUT_DIR/salmon.gene_counts.merged.yeast.tsv
+
+# we can also create a table of tpm values per gene by changing the --column flag
+salmon quantmerge --quants $SALMON_OUT_DIR/*_quant --column tpm \
+          -o $SALMON_OUT_DIR/salmon.gene_tpm.merged.yeast.tsv
+
+# remove the _mRNA from gene name
+sed -i '' -E 's/^([^\t]+)_mRNA(\t|$)/\1\2/' $SALMON_OUT_DIR/salmon.gene_tpm.merged.yeast.tsv
+
+conda deactivate
+```
+
+This script loops through each sample and call salmon using default options. 
+- The `-i` argument tells salmon where to find the index `-l A` tells salmon that it should automatically determine the library type of the sequencing reads (e.g. stranded vs. unstranded etc.). 
+- The `-r` arguments tell salmon where to find the SE reads for this sample (notice, salmon will accept gzipped FASTQ files directly). 
+- The `-p 4` argument tells salmon to make use of 4 threads on the computer.
+- The `-o` argument specifies the directory where salmon's quantification results should be written. 
+- The `–useVBOpt` flag sets to use variational Bayesian EM algorithm rather than the 'standard EM' to optimize abundance estimates (more accurate). 
+
+Salmon has many different options available to enable extra features or modify default behavior. However, the purpose and behavior of all of those options is beyond the scope of this activity. You can read about Salmon's many options in the documentation.
+
+# Activity
+
+1.  Identify which gene has the highest counts across all samples for both salmon and Rsubread outputs. (Hint: use `View(fc$counts)` in R to view the counts matrix for Rsubread. You can open the `salmon.gene_tpm.merged.yeast.tsv` in the `/Desktop/Genomic_Data_Analysis/Data/Counts/Salmon` folder to see the Salmon counts.)
+
+```{r}
+subread_counts <- read_tsv("~/Documents/gda/Exercises/03_WorkingWithSequences/data/counts/Rsubread/rsubread.gene_counts.merged.yeast.tsv")
+salmon_counts <- read_tsv("~/Documents/gda/Exercises/03_WorkingWithSequences/data/counts/Salmon/salmon.gene_counts.merged.yeast.tsv")
+```
+```{r}
+subread_counts <- subread_counts %>%
+  rowwise() %>%
+  mutate(total_counts = sum(
+    c_across(YPS606_MSN24_ETOH_REP1_R1.fastq.gz.subread.BAM:YPS606_WT_MOCK_REP4_R1.fastq.gz.subread.BAM), 
+    na.rm = TRUE)
+  ) %>%
+  ungroup() 
+
+salmon_counts <- salmon_counts %>%
+  rowwise() %>%
+  mutate(total_counts = sum(
+    c_across(YPS606_MSN24_ETOH_REP1_R1.fastq.gz_quant:YPS606_WT_MOCK_REP4_R1.fastq.gz_quant), 
+    na.rm = TRUE)
+  ) %>%
+  ungroup() 
+```
+
+```{r}
+subread_counts %>%
+  arrange(desc(total_counts)) %>%
+  select(fc.annotation....GeneID.., total_counts) %>%
+  head(1)
+```
+
+```{r}
+salmon_counts %>%
+  arrange(desc(total_counts)) %>%
+  select(Name, total_counts) %>%
+  head(1)
+```
+
+Both Sa
+
+2.  Redo the counting over the exons, rather than the genes (specify useMetaFeatures = FALSE) with RSubread. Use the bam files generated doing alignment reporting only unique reads, and call the featureCounts object `fc.exon`. Check the dimension of the counts slot to see how much larger it is.
+
+3.  Do you notice any differences in the count values from Salmon vs Rsubread?
+
+4.  CHALLENGE: The full size fastq files are available on OneDrive. Can you use Salmon to get the read counts on these non-subsampled files?
+
+
+
+System information for reproducibility:
+
+```{r}
+pander::pander(sessionInfo())
+```
